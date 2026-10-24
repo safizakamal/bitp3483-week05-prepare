@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Week 5 - 01 RECONNECT | BITP3483 GIS</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7f9;
+    color: #24323b;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #ffffff;
+    min-height: 100vh;
+}
+
+/* HEADER */
+
+.header {
+    background: linear-gradient(
+        135deg,
+        #102b49 0%,
+        #145c72 65%,
+        #087366 100%
+    );
+    color: white;
+    padding: 35px 40px;
+}
+
+.week {
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    color: #c8f4e9;
+}
+
+.header h1 {
+    margin: 6px 0 0 0;
+    font-size: 34px;
+}
+
+.header p {
+    margin: 5px 0 0 0;
+    font-size: 17px;
+    color: #e5f4f2;
+}
+
+/* CONTENT */
+
+.content {
+    padding: 35px 40px 50px;
+}
+
+.label {
+    display: inline-block;
+    background: #087366;
+    color: white;
+    padding: 6px 13px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+h2 {
+    color: #102b49;
+    font-size: 25px;
+    margin: 5px 0 12px;
+}
+
+.intro {
+    font-size: 17px;
+    max-width: 850px;
+}
+
+/* LAST WEEK */
+
+.last-week {
+    margin-top: 25px;
+    padding: 22px;
+    background: #f2f6f8;
+    border-radius: 12px;
+    border-left: 5px solid #35658e;
+}
+
+.last-week h3 {
+    color: #35658e;
+    margin-top: 0;
+}
+
+.questions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.question {
+    background: white;
+    border: 1px solid #d8e2e7;
+    border-radius: 9px;
+    padding: 12px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* ROLE TRANSITION */
+
+.transition-title {
+    text-align: center;
+    margin: 35px 0 18px;
+    color: #102b49;
+}
+
+.roles {
+    display: grid;
+    grid-template-columns: 1fr 70px 1fr;
+    align-items: center;
+    gap: 15px;
+}
+
+.role {
+    border: 2px solid #d9e3e8;
+    border-radius: 14px;
+    padding: 25px 18px;
+    text-align: center;
+    background: white;
+}
+
+.role-icon {
+    font-size: 42px;
+}
+
+.role h3 {
+    color: #102b49;
+    font-size: 21px;
+    margin: 8px 0 4px;
+}
+
+.role-question {
+    color: #536773;
+}
+
+.arrow {
+    text-align: center;
+    font-size: 38px;
+    font-weight: bold;
+    color: #087366;
+}
+
+/* SCENARIO */
+
+.scenario {
+    margin-top: 35px;
+    border: 2px solid #087366;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.scenario-header {
+    background: #087366;
+    color: white;
+    padding: 13px 20px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.scenario-body {
+    padding: 22px;
+}
+
+.facilities {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin: 18px 0;
+}
+
+.facility {
+    text-align: center;
+    padding: 13px 7px;
+    background: #f4f8f9;
+    border-radius: 10px;
+    border: 1px solid #dce6ea;
+}
+
+.facility .icon {
+    display: block;
+    font-size: 28px;
+}
+
+.problem {
+    margin-top: 18px;
+    background: #fff5dc;
+    border-left: 5px solid #d39a18;
+    padding: 15px 18px;
+    border-radius: 8px;
+}
+
+.problem strong {
+    color: #8a5c00;
+}
+
+/* INTERACTION */
+
+.challenge {
+    margin-top: 30px;
+}
+
+.challenge h3 {
+    color: #102b49;
+}
+
+.option {
+    display: block;
+    width: 100%;
+    padding: 13px 15px;
+    margin: 9px 0;
+    text-align: left;
+    background: white;
+    border: 1px solid #cdd9df;
+    border-radius: 9px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.option:hover {
+    background: #eef8f5;
+    border-color: #087366;
+}
+
+.feedback {
+    display: none;
+    margin-top: 13px;
+    padding: 14px 16px;
+    border-radius: 9px;
+}
+
+.feedback.correct {
+    display: block;
+    background: #e7f7ee;
+    color: #146c43;
+    border-left: 5px solid #198754;
+}
+
+.feedback.try {
+    display: block;
+    background: #fff3e0;
+    color: #8a5600;
+    border-left: 5px solid #d99a21;
+}
+
+/* BIG QUESTION */
+
+.big-question {
+    margin-top: 35px;
+    background: #102b49;
+    color: white;
+    padding: 24px;
+    border-radius: 14px;
+    text-align: center;
+}
+
+.big-question small {
+    display: block;
+    color: #9de3d8;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    margin-bottom: 5px;
+}
+
+.big-question strong {
+    display: block;
+    font-size: 24px;
+}
+
+/* NEXT */
+
+.next {
+    margin-top: 25px;
+    padding: 18px;
+    background: #eaf6f3;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.next span {
+    color: #087366;
+    font-weight: bold;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .header,
+    .content {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .questions {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .roles {
+        grid-template-columns: 1fr;
+    }
+
+    .arrow {
+        transform: rotate(90deg);
+    }
+
+    .facilities {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+
+<div class="header">
+
+    <div class="week">
+        BITP3483 · WEEK 5 · PREPARE
+    </div>
+
+    <h1>01 🔄 RECONNECT</h1>
+
+    <p>
+        From Data User to Data Creator
+    </p>
+
+</div>
+
+
+<div class="content">
+
+    <div class="label">
+        CONNECT THE STORY
+    </div>
+
+    <h2>Remember what you did last week?</h2>
+
+    <p class="intro">
+        In Week 4, you worked as a <strong>GIS data investigator</strong>.
+        You received spatial data created by someone else and examined
+        whether that data could be trusted.
+    </p>
+
+
+    <!-- LAST WEEK -->
+
+    <div class="last-week">
+
+        <h3>🔎 WEEK 4 — CAPTURE</h3>
+
+        <p>
+            Before using the data, you learned to ask important questions.
+        </p>
+
+        <div class="questions">
+
+            <div class="question">
+                📍 WHERE?<br>
+                Is it correctly located?
+            </div>
+
+            <div class="question">
+                📝 WHAT?<br>
+                Are the attributes correct?
+            </div>
+
+            <div class="question">
+                🧩 MISSING?<br>
+                Is anything missing?
+            </div>
+
+            <div class="question">
+                🔄 CONSISTENT?<br>
+                Does the data make sense?
+            </div>
+
+            <div class="question">
+                🕒 WHEN?<br>
+                Is it current?
+            </div>
+
+            <div class="question">
+                🎯 PURPOSE?<br>
+                Is it fit for use?
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TRANSITION -->
+
+    <h2 class="transition-title">
+        But what if the data you need does not exist?
+    </h2>
+
+    <div class="roles">
+
+        <div class="role">
+
+            <div class="role-icon">
+                🔍
+            </div>
+
+            <h3>DATA USER</h3>
+
+            <div class="role-question">
+                “Can I trust this data?”
+            </div>
+
+        </div>
+
+
+        <div class="arrow">
+            →
+        </div>
+
+
+        <div class="role">
+
+            <div class="role-icon">
+                ✏️
+            </div>
+
+            <h3>DATA CREATOR</h3>
+
+            <div class="role-question">
+                “How do I create it properly?”
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- SCENARIO -->
+
+    <div class="scenario">
+
+        <div class="scenario-header">
+            🎯 YOUR NEW MISSION
+        </div>
+
+        <div class="scenario-body">
+
+            <p>
+                Imagine that your university wants a GIS map showing
+                important campus facilities.
+            </p>
+
+            <div class="facilities">
+
+                <div class="facility">
+                    <span class="icon">🚲</span>
+                    Bicycle Parking
+                </div>
+
+                <div class="facility">
+                    <span class="icon">🏢</span>
+                    Buildings
+                </div>
+
+                <div class="facility">
+                    <span class="icon">🅿️</span>
+                    Parking Areas
+                </div>
+
+                <div class="facility">
+                    <span class="icon">🚶</span>
+                    Pedestrian Paths
+                </div>
+
+                <div class="facility">
+                    <span class="icon">☕</span>
+                    Student Facilities
+                </div>
+
+            </div>
+
+            <div class="problem">
+
+                <strong>There is one problem...</strong>
+
+                <br>
+
+                Some of the spatial data do not exist yet.
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- INTERACTION -->
+
+    <div class="challenge">
+
+        <h3>💭 What could you do?</h3>
+
+        <p>
+            If the GIS layer you need does not exist, which of the
+            following could help you create it?
+        </p>
+
+        <button class="option"
+                onclick="showCorrect()">
+            A. Collect locations in the field
+        </button>
+
+        <button class="option"
+                onclick="showCorrect()">
+            B. Trace features from aerial or satellite imagery
+        </button>
+
+        <button class="option"
+                onclick="showCorrect()">
+            C. Use addresses or coordinates from an existing table
+        </button>
+
+        <button class="option"
+                onclick="showCorrect()">
+            D. Combine information from existing datasets
+        </button>
+
+        <button class="option"
+                onclick="showAll()">
+            E. All of the above
+        </button>
+
+
+        <div id="feedbackCorrect"
+             class="feedback correct">
+
+            ✓ Yes — this is one possible way to create or prepare
+            spatial data. There is often more than one route from
+            the real world into GIS.
+
+        </div>
+
+
+        <div id="feedbackAll"
+             class="feedback correct">
+
+            ✓ Exactly!
+
+            <br><br>
+
+            GIS data can be created through
+            <strong>field collection, digitising, geocoding,
+            coordinate-based data, or integration of existing
+            datasets.</strong>
+
+            <br><br>
+
+            The important question is not only
+            <em>“Which tool should I use?”</em>
+
+            It is also:
+
+            <strong>
+                “Will the data I create correctly represent the
+                real world?”
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <!-- BIG QUESTION -->
+
+    <div class="big-question">
+
+        <small>WEEK 5 BIG QUESTION</small>
+
+        <strong>
+            How do we turn real-world information into GIS-ready data?
+        </strong>
+
+    </div>
+
+
+    <!-- NEXT -->
+
+    <div class="next">
+
+        You are ready to move from
+        <strong>DATA USER</strong>
+        to
+        <strong>DATA CREATOR</strong>.
+
+        <br><br>
+
+        <span>
+            NEXT → 02 🔎 DISCOVER
+        </span>
+
+        <br>
+
+        How does the real world become GIS data?
+
+    </div>
+
+</div>
+
+</div>
+
+
+<script>
+
+function hideFeedback() {
+
+    document.getElementById("feedbackCorrect").style.display = "none";
+    document.getElementById("feedbackAll").style.display = "none";
+
+}
+
+
+function showCorrect() {
+
+    hideFeedback();
+
+    document.getElementById("feedbackCorrect").style.display = "block";
+
+}
+
+
+function showAll() {
+
+    hideFeedback();
+
+    document.getElementById("feedbackAll").style.display = "block";
+
+}
+
+</script>
+
+</body>
+</html>
