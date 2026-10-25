@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Week 5 - 07 CHECK | Are You Ready?</title>
+
+<style>
+
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f4f7f9;
+    color:#24323b;
+    line-height:1.65;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    background:#ffffff;
+    min-height:100vh;
+}
+
+.header{
+    background:linear-gradient(135deg,#102b49,#145c72,#087366);
+    color:white;
+    padding:36px 40px;
+}
+
+.week{
+    font-size:13px;
+    font-weight:bold;
+    letter-spacing:1.5px;
+    color:#c8f4e9;
+}
+
+.header h1{
+    margin:6px 0 0;
+    font-size:34px;
+}
+
+.header p{
+    margin:5px 0 0;
+    color:#e5f4f2;
+    font-size:17px;
+}
+
+.content{
+    padding:35px 40px 50px;
+}
+
+.label{
+    display:inline-block;
+    background:#087366;
+    color:white;
+    padding:6px 13px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+h2{
+    color:#102b49;
+}
+
+h3{
+    color:#102b49;
+}
+
+/* INTRO */
+
+.intro{
+    background:#eef8f5;
+    border:2px solid #a8d8cc;
+    border-radius:14px;
+    padding:24px;
+    margin:25px 0;
+}
+
+/* JOURNEY */
+
+.journey{
+    background:#102b49;
+    color:white;
+    border-radius:14px;
+    padding:23px;
+    margin:28px 0;
+}
+
+.journey-title{
+    text-align:center;
+    color:#9de3d8;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+.flow{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.flow-box{
+    background:white;
+    color:#102b49;
+    min-width:125px;
+    padding:12px;
+    border-radius:8px;
+    text-align:center;
+    font-weight:bold;
+}
+
+.arrow{
+    color:#9de3d8;
+    font-size:22px;
+    font-weight:bold;
+}
+
+/* QUESTION */
+
+.question{
+    border:2px solid #dbe5e9;
+    border-radius:14px;
+    padding:24px;
+    margin:28px 0;
+    background:white;
+}
+
+.question-head{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:15px;
+}
+
+.qnumber{
+    min-width:42px;
+    height:42px;
+    background:#087366;
+    color:white;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    font-size:18px;
+}
+
+.qtopic{
+    font-size:12px;
+    font-weight:bold;
+    color:#087366;
+    letter-spacing:1px;
+}
+
+.question h3{
+    margin:0;
+}
+
+.option{
+    display:block;
+    width:100%;
+    margin:9px 0;
+    padding:13px 15px;
+    border:1px solid #ccd9df;
+    border-radius:8px;
+    background:white;
+    text-align:left;
+    font-size:15px;
+    cursor:pointer;
+}
+
+.option:hover:not(:disabled){
+    background:#eef8f5;
+    border-color:#087366;
+}
+
+.option:disabled{
+    cursor:default;
+}
+
+.selected-correct{
+    background:#e7f7ee !important;
+    border:2px solid #198754 !important;
+}
+
+.selected-wrong{
+    background:#fdecec !important;
+    border:2px solid #c65b5b !important;
+}
+
+.feedback{
+    display:none;
+    margin-top:15px;
+    padding:16px;
+    border-radius:8px;
+}
+
+.correct{
+    background:#e7f7ee;
+    border-left:5px solid #198754;
+}
+
+.wrong{
+    background:#fff3e0;
+    border-left:5px solid #d99a21;
+}
+
+/* RESULTS */
+
+.results{
+    display:none;
+    background:#102b49;
+    color:white;
+    border-radius:15px;
+    padding:30px;
+    margin:35px 0;
+    text-align:center;
+}
+
+.score{
+    font-size:52px;
+    font-weight:bold;
+    color:#9de3d8;
+    margin:10px 0;
+}
+
+.result-message{
+    font-size:18px;
+    margin-bottom:20px;
+}
+
+.progress{
+    max-width:500px;
+    height:14px;
+    margin:20px auto;
+    background:#34516b;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    width:0%;
+    height:100%;
+    background:#9de3d8;
+    transition:width .5s;
+}
+
+.retry{
+    border:none;
+    background:white;
+    color:#102b49;
+    padding:11px 19px;
+    border-radius:22px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* TAKEAWAY */
+
+.takeaway{
+    border:2px solid #a8d8cc;
+    background:#f8fcfb;
+    border-radius:13px;
+    padding:23px;
+    margin-top:30px;
+}
+
+.takeaway h3{
+    color:#087366;
+    margin-top:0;
+}
+
+/* NEXT */
+
+.next{
+    background:#102b49;
+    color:white;
+    border-radius:12px;
+    padding:22px;
+    margin-top:30px;
+    text-align:center;
+}
+
+.next-label{
+    color:#9de3d8;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+.next-title{
+    font-size:20px;
+    font-weight:bold;
+    margin-top:5px;
+}
+
+@media(max-width:700px){
+
+    .header,
+    .content{
+        padding-left:20px;
+        padding-right:20px;
+    }
+
+    .flow{
+        flex-direction:column;
+    }
+
+    .arrow{
+        transform:rotate(90deg);
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+
+<div class="header">
+
+    <div class="week">
+        BITP3483 · WEEK 5 · PREPARE
+    </div>
+
+    <h1>07 🖥️ CHECK</h1>
+
+    <p>Are You Ready?</p>
+
+</div>
+
+
+<div class="content">
+
+<div class="label">
+QUICK KNOWLEDGE CHECK
+</div>
+
+<h2>Before You Enter the Practical...</h2>
+
+<div class="intro">
+
+    <strong>One final check.</strong>
+
+    <p>
+        You have followed geographic data from the
+        real world towards GIS-ready data.
+    </p>
+
+    <p style="margin-bottom:0;">
+        Answer these <strong>5 questions</strong>
+        to check whether you are ready to apply
+        the ideas in the practical.
+    </p>
+
+</div>
+
+
+<!-- JOURNEY -->
+
+<div class="journey">
+
+<div class="journey-title">
+YOUR WEEK 5 JOURNEY
+</div>
+
+<div class="flow">
+
+<div class="flow-box">
+✏️<br>
+CREATE
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box">
+📍<br>
+LOCATE
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box">
+🧩<br>
+CONNECT
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box">
+🧹<br>
+PREPARE
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box">
+✓<br>
+CHECK
+</div>
+
+</div>
+
+</div>
+
+
+<!-- QUESTION 1 -->
+
+<div class="question" id="question1">
+
+<div class="question-head">
+
+<div class="qnumber">1</div>
+
+<div>
+<div class="qtopic">DIGITISING</div>
+<h3>Creating a Missing Feature</h3>
+</div>
+
+</div>
+
+<p>
+You can clearly see a new campus parking area
+on recent aerial imagery, but it does not exist
+in your GIS layer.
+</p>
+
+<p>
+Which approach is most appropriate?
+</p>
+
+<button class="option"
+onclick="answerQuestion(1,this,false)">
+A. Geocode the aerial image
+</button>
+
+<button class="option"
+onclick="answerQuestion(1,this,true)">
+B. Digitise the parking area from the imagery
+</button>
+
+<button class="option"
+onclick="answerQuestion(1,this,false)">
+C. Add a random location to the map
+</button>
+
+<button class="option"
+onclick="answerQuestion(1,this,false)">
+D. Change the coordinate system
+</button>
+
+<div id="correct1" class="feedback correct">
+✓ <strong>Correct.</strong>
+Digitising allows you to create a GIS feature
+using imagery or another visual reference.
+</div>
+
+<div id="wrong1" class="feedback wrong">
+Not quite. You already have a visual source showing
+the feature. Think about how GIS features can be
+created from imagery.
+</div>
+
+</div>
+
+
+<!-- QUESTION 2 -->
+
+<div class="question" id="question2">
+
+<div class="question-head">
+
+<div class="qnumber">2</div>
+
+<div>
+<div class="qtopic">GEOMETRY + ATTRIBUTES</div>
+<h3>What Makes a Useful GIS Feature?</h3>
+</div>
+
+</div>
+
+<p>
+You have created the location of a bicycle parking
+facility on the map.
+</p>
+
+<p>
+What else would make the feature more useful?
+</p>
+
+<button class="option"
+onclick="answerQuestion(2,this,false)">
+A. Only change its map colour
+</button>
+
+<button class="option"
+onclick="answerQuestion(2,this,false)">
+B. Create several copies of the same feature
+</button>
+
+<button class="option"
+onclick="answerQuestion(2,this,true)">
+C. Add attributes such as facility name and capacity
+</button>
+
+<button class="option"
+onclick="answerQuestion(2,this,false)">
+D. Remove its location
+</button>
+
+<div id="correct2" class="feedback correct">
+✓ <strong>Correct.</strong>
+A GIS feature combines its
+<strong>geometry</strong> with useful
+<strong>attributes</strong>.
+</div>
+
+<div id="wrong2" class="feedback wrong">
+Not quite. Remember:
+<strong>GIS Feature = Geometry + Attributes.</strong>
+</div>
+
+</div>
+
+
+<!-- QUESTION 3 -->
+
+<div class="question" id="question3">
+
+<div class="question-head">
+
+<div class="qnumber">3</div>
+
+<div>
+<div class="qtopic">GEOCODING</div>
+<h3>From Addresses to Locations</h3>
+</div>
+
+</div>
+
+<p>
+You receive a spreadsheet containing
+200 clinic names and addresses,
+but no coordinates.
+</p>
+
+<p>
+What should you consider using?
+</p>
+
+<button class="option"
+onclick="answerQuestion(3,this,true)">
+A. Geocoding
+</button>
+
+<button class="option"
+onclick="answerQuestion(3,this,false)">
+B. Drawing random polygons
+</button>
+
+<button class="option"
+onclick="answerQuestion(3,this,false)">
+C. Changing every clinic name
+</button>
+
+<button class="option"
+onclick="answerQuestion(3,this,false)">
+D. Deleting the addresses
+</button>
+
+<div id="correct3" class="feedback correct">
+✓ <strong>Correct.</strong>
+Geocoding can convert addresses or place descriptions
+into geographic locations.
+</div>
+
+<div id="wrong3" class="feedback wrong">
+Not quite. Look for the method that converts
+<strong>location descriptions into map locations.</strong>
+</div>
+
+</div>
+
+
+<!-- QUESTION 4 -->
+
+<div class="question" id="question4">
+
+<div class="question-head">
+
+<div class="qnumber">4</div>
+
+<div>
+<div class="qtopic">CONNECTING DATA</div>
+<h3>Finding the Common Link</h3>
+</div>
+
+</div>
+
+<p>
+A building GIS layer contains:
+</p>
+
+<p style="font-weight:bold;">
+Building_ID · Building_Name · Geometry
+</p>
+
+<p>
+A facilities spreadsheet contains:
+</p>
+
+<p style="font-weight:bold;">
+Building_ID · Students · Computers
+</p>
+
+<p>
+Which field is most useful for connecting
+the corresponding information?
+</p>
+
+<button class="option"
+onclick="answerQuestion(4,this,false)">
+A. Computers
+</button>
+
+<button class="option"
+onclick="answerQuestion(4,this,true)">
+B. Building_ID
+</button>
+
+<button class="option"
+onclick="answerQuestion(4,this,false)">
+C. Geometry
+</button>
+
+<button class="option"
+onclick="answerQuestion(4,this,false)">
+D. Spreadsheet filename
+</button>
+
+<div id="correct4" class="feedback correct">
+✓ <strong>Correct.</strong>
+Building_ID provides a common identifier
+that can connect corresponding records.
+</div>
+
+<div id="wrong4" class="feedback wrong">
+Not quite. Look for the value that appears in both
+datasets and identifies the same real-world building.
+</div>
+
+</div>
+
+
+<!-- QUESTION 5 -->
+
+<div class="question" id="question5">
+
+<div class="question-head">
+
+<div class="qnumber">5</div>
+
+<div>
+<div class="qtopic">DATA PREPARATION</div>
+<h3>Is the Dataset Ready?</h3>
+</div>
+
+</div>
+
+<p>
+A facilities dataset contains:
+</p>
+
+<ul>
+<li>Computer Lab</li>
+<li>computer laboratory</li>
+<li>COMP LAB</li>
+<li>several missing values</li>
+<li>one possible duplicate record</li>
+</ul>
+
+<p>
+What is the best action before using the dataset
+for analysis?
+</p>
+
+<button class="option"
+onclick="answerQuestion(5,this,false)">
+A. Analyse it immediately because GIS will correct the problems
+</button>
+
+<button class="option"
+onclick="answerQuestion(5,this,false)">
+B. Replace every missing value with zero
+</button>
+
+<button class="option"
+onclick="answerQuestion(5,this,true)">
+C. Inspect, clean, standardise and check the data first
+</button>
+
+<button class="option"
+onclick="answerQuestion(5,this,false)">
+D. Delete all records that look unusual
+</button>
+
+<div id="correct5" class="feedback correct">
+✓ <strong>Correct.</strong>
+The problems should be investigated and prepared
+before the dataset is relied upon for analysis.
+</div>
+
+<div id="wrong5" class="feedback wrong">
+Not quite. Data preparation should be based on
+careful checking — not guessing, automatic deletion,
+or assuming GIS will fix the problems.
+</div>
+
+</div>
+
+
+<!-- RESULTS -->
+
+<div id="results" class="results">
+
+<div style="
+    color:#9de3d8;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:1px;">
+    YOUR RESULT
+</div>
+
+<div id="score" class="score">
+0 / 5
+</div>
+
+<div class="progress">
+<div id="progressFill" class="progress-fill"></div>
+</div>
+
+<div id="resultMessage" class="result-message"></div>
+
+<button class="retry" onclick="resetQuiz()">
+Try Again
+</button>
+
+</div>
+
+
+<!-- TAKEAWAY -->
+
+<div class="takeaway">
+
+<h3>💡 The Week 5 Big Picture</h3>
+
+<p>
+Preparing geographic data is a journey.
+</p>
+
+<p>
+Sometimes you need to
+<strong>create</strong> a feature from imagery.
+</p>
+
+<p>
+Sometimes you need to
+<strong>locate</strong> records from addresses.
+</p>
+
+<p>
+Sometimes information from different sources
+needs to be <strong>connected</strong>.
+</p>
+
+<p>
+And before data are used, they need to be
+<strong>inspected, prepared and checked.</strong>
+</p>
+
+<p style="margin-bottom:0;">
+The goal is not simply to put information on a map.
+The goal is to create data that are
+<strong>fit for their intended GIS purpose.</strong>
+</p>
+
+</div>
+
+
+<!-- FINAL FLOW -->
+
+<div style="
+    background:#eef8f5;
+    border-radius:13px;
+    padding:24px;
+    margin-top:28px;
+    text-align:center;">
+
+<div style="
+    font-weight:bold;
+    color:#087366;
+    font-size:18px;
+    margin-bottom:14px;">
+FROM REAL WORLD TO GIS-READY DATA
+</div>
+
+<div style="line-height:2;">
+
+🌍 <strong>REAL WORLD</strong>
+
+<br>↓<br>
+
+📥 <strong>CAPTURE / OBTAIN</strong>
+
+<br>↓<br>
+
+✏️ <strong>DIGITISE</strong>
+&nbsp; · &nbsp;
+📍 <strong>GEOCODE</strong>
+&nbsp; · &nbsp;
+🧩 <strong>CONNECT</strong>
+
+<br>↓<br>
+
+🧹 <strong>PREPARE</strong>
+
+<br>↓<br>
+
+✓ <strong>CHECK</strong>
+
+<br>↓<br>
+
+<span style="
+    display:inline-block;
+    background:#087366;
+    color:white;
+    padding:7px 16px;
+    border-radius:20px;
+    margin-top:5px;
+    font-weight:bold;">
+GIS-READY DATA
+</span>
+
+</div>
+
+</div>
+
+
+<!-- NEXT -->
+
+<div class="next">
+
+<div class="next-label">
+YOU ARE READY TO APPLY
+</div>
+
+<div class="next-title">
+08 ✅ PRACTICAL
+</div>
+
+<p style="margin:7px 0 0;color:#e5f4f2;">
+Practical 05 — From Real World to GIS Data
+</p>
+
+</div>
+
+</div>
+</div>
+
+
+<script>
+
+let score = 0;
+let answered = {
+    1:false,
+    2:false,
+    3:false,
+    4:false,
+    5:false
+};
+
+function answerQuestion(q,button,isCorrect){
+
+    if(answered[q]){
+        return;
+    }
+
+    answered[q] = true;
+
+    const question =
+        document.getElementById("question"+q);
+
+    const buttons =
+        question.querySelectorAll(".option");
+
+    buttons.forEach(function(btn){
+        btn.disabled = true;
+    });
+
+    if(isCorrect){
+
+        score++;
+
+        button.classList.add("selected-correct");
+
+        document.getElementById(
+            "correct"+q
+        ).style.display = "block";
+
+    }else{
+
+        button.classList.add("selected-wrong");
+
+        document.getElementById(
+            "wrong"+q
+        ).style.display = "block";
+
+    }
+
+    checkCompletion();
+}
+
+
+function checkCompletion(){
+
+    let totalAnswered = 0;
+
+    for(let i=1;i<=5;i++){
+
+        if(answered[i]){
+            totalAnswered++;
+        }
+
+    }
+
+    if(totalAnswered === 5){
+
+        showResults();
+
+    }
+
+}
+
+
+function showResults(){
+
+    const results =
+        document.getElementById("results");
+
+    const scoreDisplay =
+        document.getElementById("score");
+
+    const message =
+        document.getElementById("resultMessage");
+
+    const progress =
+        document.getElementById("progressFill");
+
+    results.style.display = "block";
+
+    scoreDisplay.innerHTML =
+        score + " / 5";
+
+    progress.style.width =
+        (score / 5 * 100) + "%";
+
+
+    if(score === 5){
+
+        message.innerHTML =
+        "<strong>Excellent.</strong><br>" +
+        "You are ready to move into the practical.";
+
+    }else if(score >= 4){
+
+        message.innerHTML =
+        "<strong>Well done.</strong><br>" +
+        "Review any question you missed, then continue to the practical.";
+
+    }else if(score >= 3){
+
+        message.innerHTML =
+        "<strong>Almost there.</strong><br>" +
+        "Review the feedback before starting the practical.";
+
+    }else{
+
+        message.innerHTML =
+        "<strong>Take another look.</strong><br>" +
+        "Revisit the Week 5 learning activities and try this check again.";
+
+    }
+
+    results.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+
+}
+
+
+function resetQuiz(){
+
+    score = 0;
+
+    for(let i=1;i<=5;i++){
+
+        answered[i] = false;
+
+        const question =
+            document.getElementById("question"+i);
+
+        const buttons =
+            question.querySelectorAll(".option");
+
+        buttons.forEach(function(btn){
+
+            btn.disabled = false;
+
+            btn.classList.remove(
+                "selected-correct",
+                "selected-wrong"
+            );
+
+        });
+
+        document.getElementById(
+            "correct"+i
+        ).style.display = "none";
+
+        document.getElementById(
+            "wrong"+i
+        ).style.display = "none";
+
+    }
+
+    document.getElementById(
+        "results"
+    ).style.display = "none";
+
+    document.getElementById(
+        "progressFill"
+    ).style.width = "0%";
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+</script>
+
+</body>
+</html>
