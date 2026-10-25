@@ -4,13 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Week 5 - 03 LEARN | BITP3483 GIS</title>
+<title>Week 5 - 03 LEARN | Digitising & Feature Creation</title>
 
 <style>
-* { box-sizing: border-box; }
+
+* {
+    box-sizing: border-box;
+}
 
 body {
     margin: 0;
+    padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     background: #f4f7f9;
     color: #24323b;
@@ -24,8 +28,15 @@ body {
     min-height: 100vh;
 }
 
+/* HEADER */
+
 .header {
-    background: linear-gradient(135deg,#102b49 0%,#145c72 65%,#087366 100%);
+    background: linear-gradient(
+        135deg,
+        #102b49 0%,
+        #145c72 65%,
+        #087366 100%
+    );
     color: white;
     padding: 35px 40px;
 }
@@ -38,15 +49,17 @@ body {
 }
 
 .header h1 {
-    margin: 6px 0 0;
+    margin: 6px 0 0 0;
     font-size: 34px;
 }
 
 .header p {
-    margin: 5px 0 0;
+    margin: 5px 0 0 0;
     font-size: 17px;
     color: #e5f4f2;
 }
+
+/* CONTENT */
 
 .content {
     padding: 35px 40px 50px;
@@ -61,23 +74,27 @@ body {
     font-size: 12px;
     font-weight: bold;
     letter-spacing: 1px;
+    margin-bottom: 12px;
 }
 
 h2 {
     color: #102b49;
     font-size: 25px;
+    margin-top: 10px;
 }
 
-h3 { color: #102b49; }
+h3 {
+    color: #102b49;
+}
 
 .intro {
     font-size: 17px;
     max-width: 850px;
 }
 
-/* READING CONNECTION */
+/* CONNECTION */
 
-.reconnect {
+.connection {
     background: #f4f1fb;
     border-left: 5px solid #7254a3;
     padding: 20px 22px;
@@ -85,108 +102,275 @@ h3 { color: #102b49; }
     margin: 25px 0;
 }
 
-/* DEFINITION */
+/* SCENARIO */
 
-.definition {
+.scenario {
+    background: #eef8f5;
+    border: 2px solid #a8d8cc;
+    border-radius: 14px;
+    padding: 24px;
+    margin: 28px 0;
+}
+
+.scenario h3 {
+    color: #087366;
+    margin-top: 0;
+}
+
+/* BIG QUESTION */
+
+.big-question {
     background: #102b49;
     color: white;
     padding: 25px;
     border-radius: 14px;
-    margin: 30px 0;
+    margin: 28px 0;
     text-align: center;
 }
 
-.definition small {
+.big-question small {
     display: block;
     color: #9de3d8;
     font-weight: bold;
     letter-spacing: 1.3px;
+    margin-bottom: 7px;
 }
 
-.definition strong {
+.big-question strong {
     display: block;
-    margin-top: 8px;
-    font-size: 22px;
+    font-size: 23px;
 }
 
-/* REPRESENTATION */
+/* DIGITISING DEFINITION */
 
-.geometry-grid {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 15px;
-    margin: 22px 0;
-}
-
-.geometry {
-    text-align: center;
-    border: 2px solid #d8e3e7;
+.definition {
+    background: linear-gradient(135deg,#e9f7f3,#f8fcfb);
+    border: 2px solid #a8d8cc;
+    padding: 23px;
     border-radius: 13px;
-    padding: 20px 12px;
-    background: white;
+    margin: 30px 0;
 }
 
-.geometry-icon {
-    font-size: 42px;
+.definition-title {
     color: #087366;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* SOURCE EXAMPLE */
+
+.source-box {
+    background: #f7fafb;
+    border: 1px solid #d8e3e7;
+    border-radius: 13px;
+    padding: 23px;
+    margin: 25px 0;
+}
+
+.source-flow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.source-item {
+    min-width: 150px;
+    padding: 17px;
+    background: white;
+    border: 2px solid #d8e3e7;
+    border-radius: 10px;
+    text-align: center;
     font-weight: bold;
 }
 
-.geometry h3 {
-    margin: 7px 0 5px;
+.source-icon {
+    font-size: 36px;
 }
 
-.geometry p {
-    margin: 0;
-    color: #536773;
-    font-size: 14px;
+.arrow {
+    color: #087366;
+    font-size: 27px;
+    font-weight: bold;
 }
 
-/* CHALLENGE */
+/* PROCESS */
 
-.challenge {
-    margin-top: 35px;
-    padding: 25px;
+.process {
+    margin-top: 38px;
+}
+
+.step {
+    display: grid;
+    grid-template-columns: 65px 1fr;
+    gap: 15px;
+    align-items: start;
+    margin: 15px 0;
+}
+
+.step-number {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #087366;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.step-content {
     background: #f7fafb;
-    border: 2px solid #dbe5e9;
-    border-radius: 14px;
+    border: 1px solid #d8e3e7;
+    border-radius: 10px;
+    padding: 15px 18px;
 }
 
-.object-card {
+.step-content h3 {
+    margin: 0 0 4px;
+}
+
+.step-content p {
+    margin: 0;
+}
+
+/* GEOMETRY REMINDER */
+
+.geometry-reminder {
+    margin: 30px 0;
+    background: #fff7e6;
+    border-left: 5px solid #e0a126;
+    padding: 21px;
+    border-radius: 9px;
+}
+
+.geometry-icons {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    flex-wrap: wrap;
+    margin: 18px 0 8px;
+}
+
+.geometry-item {
     text-align: center;
+    min-width: 100px;
+}
+
+.geometry-symbol {
+    font-size: 37px;
+    font-weight: bold;
+    color: #087366;
+}
+
+/* FEATURE */
+
+.feature-box {
+    border: 2px solid #a8d8cc;
+    border-radius: 14px;
+    overflow: hidden;
+    margin: 35px 0;
+}
+
+.feature-title {
+    background: #087366;
+    color: white;
+    padding: 14px 20px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.feature-content {
+    padding: 23px;
+}
+
+.feature-parts {
+    display: grid;
+    grid-template-columns: 1fr 70px 1fr;
+    gap: 12px;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.part {
+    background: #f4f9f8;
+    border: 1px solid #cfe2dd;
     padding: 20px;
+    border-radius: 10px;
+    text-align: center;
 }
 
-.object-icon {
-    font-size: 55px;
+.part-icon {
+    font-size: 36px;
 }
 
-.object-title {
-    font-size: 21px;
+.plus {
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+    color: #087366;
+}
+
+/* ATTRIBUTE */
+
+.attribute-example {
+    background: #f7fafb;
+    border-radius: 10px;
+    padding: 18px;
+    margin-top: 18px;
+}
+
+.attribute-row {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    border-bottom: 1px solid #dbe4e8;
+    padding: 8px 0;
+}
+
+.attribute-row:last-child {
+    border-bottom: none;
+}
+
+.attribute-field {
     font-weight: bold;
     color: #102b49;
 }
 
-.choices {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 10px;
-    margin-top: 15px;
+/* DECISION ACTIVITY */
+
+.activity {
+    background: #f7fafb;
+    border: 2px solid #dbe5e9;
+    border-radius: 14px;
+    padding: 24px;
+    margin-top: 35px;
 }
 
-.choice {
-    padding: 13px;
+.activity h2 {
+    margin-top: 0;
+}
+
+.option {
+    display: block;
+    width: 100%;
+    margin: 9px 0;
+    padding: 13px 15px;
     background: white;
-    border: 1px solid #cbd8de;
+    border: 1px solid #ccd9df;
     border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
+    text-align: left;
     font-size: 15px;
+    cursor: pointer;
 }
 
-.choice:hover {
-    border-color: #087366;
+.option:hover {
     background: #eef8f5;
+    border-color: #087366;
 }
 
 .feedback {
@@ -208,109 +392,48 @@ h3 { color: #102b49; }
     border-left: 5px solid #d99a21;
 }
 
-.next-object {
-    display: none;
-    margin: 15px auto 0;
-    padding: 11px 18px;
-    border: none;
-    border-radius: 7px;
-    background: #087366;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-}
+/* QUALITY */
 
-/* PURPOSE */
-
-.purpose {
-    margin-top: 30px;
-    background: #fff7e6;
-    border-left: 5px solid #e0a126;
-    padding: 20px;
-    border-radius: 9px;
-}
-
-/* FEATURE */
-
-.feature-box {
+.quality {
+    background: #eef8f5;
+    padding: 24px;
+    border-radius: 13px;
     margin-top: 35px;
-    border: 2px solid #a8d8cc;
-    border-radius: 14px;
-    overflow: hidden;
 }
 
-.feature-title {
-    background: #087366;
-    color: white;
-    padding: 14px 20px;
-    font-weight: bold;
-    font-size: 18px;
-}
-
-.feature-content {
-    padding: 23px;
-}
-
-.feature-parts {
-    display: grid;
-    grid-template-columns: 1fr 70px 1fr;
-    gap: 12px;
-    align-items: center;
-    margin-top: 20px;
-}
-
-.part {
-    background: #f4f9f8;
-    border: 1px solid #cfe2dd;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.part-icon {
-    font-size: 37px;
-}
-
-.plus {
-    text-align: center;
-    font-size: 35px;
-    font-weight: bold;
+.quality h3 {
     color: #087366;
+    margin-top: 0;
 }
 
-/* ATTRIBUTE TABLE */
-
-.table-wrap {
-    overflow-x: auto;
-    margin-top: 18px;
+.quality-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+    margin-top: 15px;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 600px;
+.quality-item {
+    background: white;
+    border: 1px solid #cfe2dd;
+    padding: 13px;
+    border-radius: 8px;
 }
 
-th {
+/* FULL FLOW */
+
+.full-flow {
+    margin-top: 35px;
     background: #102b49;
     color: white;
-    padding: 11px;
-    text-align: left;
+    padding: 25px;
+    border-radius: 14px;
 }
 
-td {
-    border: 1px solid #d7e0e5;
-    padding: 10px;
-}
-
-tr:nth-child(even) {
-    background: #f7fafb;
-}
-
-/* PROCESS */
-
-.process {
-    margin-top: 35px;
+.full-flow h3 {
+    color: #9de3d8;
+    margin-top: 0;
+    text-align: center;
 }
 
 .flow {
@@ -318,69 +441,33 @@ tr:nth-child(even) {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 9px;
+    gap: 8px;
     margin-top: 20px;
 }
 
 .flow-box {
-    min-width: 125px;
-    padding: 15px;
-    border: 2px solid #d6e2e6;
-    border-radius: 9px;
+    background: white;
+    color: #102b49;
+    border-radius: 8px;
+    padding: 13px;
+    min-width: 120px;
     text-align: center;
     font-weight: bold;
-    background: white;
 }
 
-.arrow {
-    color: #087366;
-    font-size: 25px;
-    font-weight: bold;
-}
-
-/* QUALITY */
-
-.quality {
-    margin-top: 35px;
-    background: #eef8f5;
-    border-radius: 13px;
-    padding: 23px;
-}
-
-.quality-grid {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 10px;
-}
-
-.quality-item {
-    background: white;
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #cfe2dd;
-}
-
-/* FINAL CHECK */
-
-.final-check {
-    margin-top: 35px;
-}
-
-.final-question {
-    background: #f7fafb;
-    padding: 22px;
-    border-radius: 11px;
-    border: 1px solid #d8e3e7;
+.flow-arrow {
+    font-size: 22px;
+    color: #9de3d8;
 }
 
 /* TAKEAWAY */
 
 .takeaway {
     margin-top: 30px;
-    background: linear-gradient(135deg,#e9f7f3,#f7fbfa);
     border: 2px solid #a8d8cc;
     border-radius: 13px;
     padding: 23px;
+    background: #f8fcfb;
 }
 
 .takeaway h3 {
@@ -388,10 +475,20 @@ tr:nth-child(even) {
     margin-top: 0;
 }
 
+/* READING */
+
+.reading {
+    margin-top: 30px;
+    background: #f4f1fb;
+    border-left: 5px solid #7254a3;
+    padding: 22px;
+    border-radius: 9px;
+}
+
 /* NEXT */
 
 .next {
-    margin-top: 30px;
+    margin-top: 28px;
     padding: 22px;
     background: #102b49;
     color: white;
@@ -399,703 +496,773 @@ tr:nth-child(even) {
     text-align: center;
 }
 
-.next strong {
+.next-label {
     color: #9de3d8;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
+.next-title {
+    font-size: 19px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* MOBILE */
+
 @media(max-width:700px) {
-    .header,.content {
+
+    .header,
+    .content {
         padding-left:20px;
         padding-right:20px;
     }
 
-    .geometry-grid,
-    .choices,
+    .feature-parts,
     .quality-grid {
         grid-template-columns:1fr;
     }
 
-    .feature-parts {
-        grid-template-columns:1fr;
+    .plus {
+        transform:rotate(90deg);
     }
 
-    .plus { transform:rotate(90deg); }
+    .step {
+        grid-template-columns:50px 1fr;
+    }
 
-    .flow { flex-direction:column; }
+    .source-flow,
+    .flow {
+        flex-direction:column;
+    }
 
-    .arrow { transform:rotate(90deg); }
+    .arrow,
+    .flow-arrow {
+        transform:rotate(90deg);
+    }
+
+    .attribute-row {
+        grid-template-columns:1fr;
+    }
 }
+
 </style>
 </head>
+
 
 <body>
 
 <div class="container">
 
-<!-- HEADER -->
+    <!-- HEADER -->
 
-<div class="header">
-    <div class="week">BITP3483 · WEEK 5 · PREPARE</div>
-    <h1>03 ✏️ LEARN</h1>
-    <p>Digitising &amp; Feature Creation</p>
-</div>
+    <div class="header">
 
-<div class="content">
-
-<div class="label">LEARN THE CONCEPT</div>
-
-<h2>From the real world to a GIS feature</h2>
-
-<p class="intro">
-    In 02 DISCOVER, you found that real-world information can enter GIS
-    in several ways.
-</p>
-
-<p class="intro">
-    Now we will focus on one important method:
-    <strong>digitising</strong>.
-</p>
-
-
-<!-- CONNECTION -->
-
-<div class="reconnect">
-
-    <strong>📘 Connect to Reading 01</strong>
-
-    <p>
-        Your reading introduced an important idea:
-        GIS represents real-world phenomena digitally.
-    </p>
-
-    <p style="margin-bottom:0;">
-        For vector data, those representations commonly take the form of
-        <strong>points, lines and polygons</strong>.
-    </p>
-
-</div>
-
-
-<!-- DEFINITION -->
-
-<div class="definition">
-
-    <small>WHAT IS DIGITISING?</small>
-
-    <strong>
-        Digitising is the process of creating digital GIS features
-        from real-world objects or existing source material.
-    </strong>
-
-</div>
-
-<p>
-    For example, you might use recent aerial imagery as a reference
-    and create a GIS feature representing a building, road or
-    parking area.
-</p>
-
-<p>
-    But before drawing anything, you need to make an important decision:
-</p>
-
-<h2 style="text-align:center;">
-    How should the real-world object be represented?
-</h2>
-
-
-<!-- GEOMETRY -->
-
-<div class="geometry-grid">
-
-    <div class="geometry">
-        <div class="geometry-icon">●</div>
-        <h3>POINT</h3>
-        <p>
-            Represents a location.
-        </p>
-        <p>
-            Examples: bus stop, tree, hydrant.
-        </p>
-    </div>
-
-    <div class="geometry">
-        <div class="geometry-icon">━</div>
-        <h3>LINE</h3>
-        <p>
-            Represents a feature with length or a route.
-        </p>
-        <p>
-            Examples: road, river, footpath.
-        </p>
-    </div>
-
-    <div class="geometry">
-        <div class="geometry-icon">⬟</div>
-        <h3>POLYGON</h3>
-        <p>
-            Represents an area or boundary.
-        </p>
-        <p>
-            Examples: building, lake, parking area.
-        </p>
-    </div>
-
-</div>
-
-
-<!-- CHALLENGE -->
-
-<div class="challenge">
-
-    <h2>🎯 Point, Line or Polygon?</h2>
-
-    <p>
-        Imagine you are creating a campus GIS.
-        Choose the most appropriate representation for each feature.
-    </p>
-
-    <div class="object-card">
-
-        <div id="objectIcon" class="object-icon">🚏</div>
-
-        <div id="objectTitle" class="object-title">
-            Campus Bus Stop
+        <div class="week">
+            BITP3483 · WEEK 5 · PREPARE
         </div>
 
-        <p id="objectQuestion">
-            How would you represent the location of a bus stop?
+        <h1>03 ✏️ LEARN</h1>
+
+        <p>
+            Digitising &amp; Feature Creation
         </p>
 
-        <div class="choices">
+    </div>
 
-            <button class="choice" onclick="answerGeometry('point')">
-                ● POINT
-            </button>
 
-            <button class="choice" onclick="answerGeometry('line')">
-                ━ LINE
-            </button>
+    <div class="content">
 
-            <button class="choice" onclick="answerGeometry('polygon')">
-                ⬟ POLYGON
-            </button>
+        <div class="label">
+            LEARN THE CONCEPT
+        </div>
+
+        <h2>Now You Become the Data Creator</h2>
+
+        <p class="intro">
+            In 02 DISCOVER, you found that geographic data can enter GIS
+            through field collection, imagery, addresses and existing data.
+        </p>
+
+        <p class="intro">
+            Now we will focus on one important method:
+            <strong>creating GIS features through digitising.</strong>
+        </p>
+
+
+        <!-- CONNECTION TO READING 01 -->
+
+        <div class="connection">
+
+            <strong>📘 Connect to Reading 01</strong>
+
+            <p>
+                Reading 01 introduced the idea that geographic data are
+                digital representations of observations and measurements
+                of the real world.
+            </p>
+
+            <p style="margin-bottom:0;">
+                Now the question changes from
+                <strong>“What is geographic data?”</strong>
+                to
+                <strong>“How can I create it?”</strong>
+            </p>
 
         </div>
 
-        <div id="geometryCorrect"
-             class="feedback correct"
-             style="display:none;">
+
+        <!-- SCENARIO -->
+
+        <div class="scenario">
+
+            <h3>🚲 Your Campus Needs a New GIS Layer</h3>
+
+            <p>
+                Your university wants a map of all bicycle parking
+                facilities on campus.
+            </p>
+
+            <p>
+                You open the GIS.
+            </p>
+
+            <p>
+                Buildings are there. Roads are there.
+                Parking areas are there.
+            </p>
+
+            <p style="margin-bottom:0;">
+                But there is <strong>no bicycle parking layer.</strong>
+            </p>
+
         </div>
 
-        <div id="geometryWrong"
-             class="feedback wrong"
-             style="display:none;">
+
+        <!-- BIG QUESTION -->
+
+        <div class="big-question">
+
+            <small>YOUR TASK</small>
+
+            <strong>
+                How can you create the missing GIS features?
+            </strong>
+
         </div>
 
-        <button id="nextObject"
-                class="next-object"
-                onclick="nextFeature()">
-            NEXT FEATURE →
-        </button>
 
-    </div>
+        <!-- WHAT IS DIGITISING -->
 
-</div>
+        <div class="definition">
 
-
-<!-- PURPOSE -->
-
-<div class="purpose">
-
-    <strong>⚠️ Is there always only one correct geometry?</strong>
-
-    <p>
-        Not necessarily.
-    </p>
-
-    <p style="margin-bottom:0;">
-        The representation can depend on the
-        <strong>purpose and scale of the map</strong>.
-        A university building may be represented as a polygon on a detailed
-        campus map, but as a point on a small-scale national map.
-    </p>
-
-</div>
-
-
-<!-- FEATURE = GEOMETRY + ATTRIBUTE -->
-
-<div class="feature-box">
-
-    <div class="feature-title">
-        A GIS Feature Is More Than a Shape
-    </div>
-
-    <div class="feature-content">
-
-        <p>
-            Suppose you digitise a bicycle parking facility as a point.
-            Is the point alone enough?
-        </p>
-
-        <p>
-            GIS also needs information describing the feature.
-        </p>
-
-        <div class="feature-parts">
-
-            <div class="part">
-                <div class="part-icon">📍</div>
-                <h3>GEOMETRY</h3>
-                <p>
-                    Where is it?<br>
-                    What is its spatial form?
-                </p>
+            <div class="definition-title">
+                ✏️ What Is Digitising?
             </div>
 
-            <div class="plus">+</div>
+            <p>
+                <strong>Digitising</strong> is the process of creating
+                digital GIS features to represent real-world objects
+                using a source such as an aerial image, satellite image,
+                map or other reference.
+            </p>
 
-            <div class="part">
-                <div class="part-icon">📝</div>
-                <h3>ATTRIBUTES</h3>
-                <p>
-                    What is it?<br>
-                    What do we know about it?
-                </p>
+            <p style="margin-bottom:0;">
+                You identify the real-world feature, create its geometry,
+                and record useful information about it.
+            </p>
+
+        </div>
+
+
+        <!-- SOURCE TO FEATURE -->
+
+        <div class="source-box">
+
+            <h3 style="margin-top:0;">
+                🛰️ Imagine You Can See the Facility on an Aerial Image
+            </h3>
+
+            <p>
+                You locate a bicycle parking facility beside the library.
+                It is visible on your reference imagery.
+            </p>
+
+            <div class="source-flow">
+
+                <div class="source-item">
+                    <div class="source-icon">🛰️</div>
+                    Aerial Image
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="source-item">
+                    <div class="source-icon">👀</div>
+                    Identify Feature
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="source-item">
+                    <div class="source-icon">✏️</div>
+                    Digitise
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="source-item">
+                    <div class="source-icon">📍</div>
+                    GIS Feature
+                </div>
+
             </div>
 
         </div>
 
-        <h3 style="text-align:center; margin-top:25px;">
-            GIS FEATURE = GEOMETRY + ATTRIBUTES
-        </h3>
+
+        <!-- PROCESS -->
+
+        <div class="process">
+
+            <h2>🛠️ What Happens During Digitising?</h2>
+
+            <p>
+                Think of digitising as a sequence of decisions,
+                not simply drawing on a map.
+            </p>
+
+
+            <!-- STEP 1 -->
+
+            <div class="step">
+
+                <div class="step-number">1</div>
+
+                <div class="step-content">
+                    <h3>Observe the Source</h3>
+
+                    <p>
+                        Examine the aerial image, map or other reference
+                        and identify the real-world feature you need.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- STEP 2 -->
+
+            <div class="step">
+
+                <div class="step-number">2</div>
+
+                <div class="step-content">
+                    <h3>Decide How to Represent It</h3>
+
+                    <p>
+                        Decide what type of geometry is appropriate
+                        for the feature and the purpose of your map.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- STEP 3 -->
+
+            <div class="step">
+
+                <div class="step-number">3</div>
+
+                <div class="step-content">
+                    <h3>Create the Geometry</h3>
+
+                    <p>
+                        Place or trace the feature in the correct
+                        geographic location.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- STEP 4 -->
+
+            <div class="step">
+
+                <div class="step-number">4</div>
+
+                <div class="step-content">
+                    <h3>Add Attributes</h3>
+
+                    <p>
+                        Record information that describes
+                        the feature you created.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- STEP 5 -->
+
+            <div class="step">
+
+                <div class="step-number">5</div>
+
+                <div class="step-content">
+                    <h3>Check Your Work</h3>
+
+                    <p>
+                        Check the location, geometry and attribute
+                        information before considering the feature complete.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- GEOMETRY REMINDER -->
+
+        <div class="geometry-reminder">
+
+            <strong>🎯 One Important Decision: How Should It Be Represented?</strong>
+
+            <p>
+                Vector GIS commonly represents real-world features
+                using three basic geometries:
+            </p>
+
+            <div class="geometry-icons">
+
+                <div class="geometry-item">
+                    <div class="geometry-symbol">●</div>
+                    <strong>POINT</strong>
+                </div>
+
+                <div class="geometry-item">
+                    <div class="geometry-symbol">━</div>
+                    <strong>LINE</strong>
+                </div>
+
+                <div class="geometry-item">
+                    <div class="geometry-symbol">⬟</div>
+                    <strong>POLYGON</strong>
+                </div>
+
+            </div>
+
+            <p style="margin-bottom:0;">
+                We will not explore these in detail here.
+                Your next reading explains how points, lines and polygons
+                are used to represent different real-world features.
+            </p>
+
+        </div>
+
+
+        <!-- FEATURE = GEOMETRY + ATTRIBUTES -->
+
+        <div class="feature-box">
+
+            <div class="feature-title">
+                A GIS Feature Needs More Than a Location
+            </div>
+
+            <div class="feature-content">
+
+                <p>
+                    Suppose you have created a feature representing
+                    the bicycle parking facility beside the library.
+                </p>
+
+                <p>
+                    GIS also needs information that helps us understand
+                    <strong>what the feature represents.</strong>
+                </p>
+
+
+                <div class="feature-parts">
+
+                    <div class="part">
+
+                        <div class="part-icon">📍</div>
+
+                        <h3>GEOMETRY</h3>
+
+                        <p>
+                            Where is it?
+                        </p>
+
+                    </div>
+
+
+                    <div class="plus">
+                        +
+                    </div>
+
+
+                    <div class="part">
+
+                        <div class="part-icon">📝</div>
+
+                        <h3>ATTRIBUTES</h3>
+
+                        <p>
+                            What do we know about it?
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <h3 style="
+                    text-align:center;
+                    color:#087366;">
+                    GIS FEATURE = GEOMETRY + ATTRIBUTES
+                </h3>
+
+
+                <div class="attribute-example">
+
+                    <div class="attribute-row">
+                        <div class="attribute-field">
+                            Facility ID
+                        </div>
+                        <div>
+                            BP001
+                        </div>
+                    </div>
+
+                    <div class="attribute-row">
+                        <div class="attribute-field">
+                            Name
+                        </div>
+                        <div>
+                            Library Bicycle Parking
+                        </div>
+                    </div>
+
+                    <div class="attribute-row">
+                        <div class="attribute-field">
+                            Capacity
+                        </div>
+                        <div>
+                            20
+                        </div>
+                    </div>
+
+                    <div class="attribute-row">
+                        <div class="attribute-field">
+                            Covered
+                        </div>
+                        <div>
+                            Yes
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- QUICK DECISION -->
+
+        <div class="activity">
+
+            <h2>🧠 Think Like a Data Creator</h2>
+
+            <p>
+                You are digitising a new bicycle parking facility
+                from recent aerial imagery.
+            </p>
+
+            <p>
+                Which action represents the
+                <strong>best digitising practice?</strong>
+            </p>
+
+
+            <button class="option"
+                    onclick="checkAnswer(false)">
+                A. Create the feature approximately anywhere near the building
+            </button>
+
+            <button class="option"
+                    onclick="checkAnswer(false)">
+                B. Create the geometry but leave all descriptive information blank
+            </button>
+
+            <button class="option"
+                    onclick="checkAnswer(true)">
+                C. Use the reference carefully, create the feature in the appropriate location, add its attributes and check the result
+            </button>
+
+            <button class="option"
+                    onclick="checkAnswer(false)">
+                D. Create several copies so that the facility is easier to see
+            </button>
+
+
+            <div id="correctFeedback"
+                 class="feedback correct"
+                 style="display:none;">
+
+                ✓ <strong>Correct.</strong>
+
+                <br><br>
+
+                Digitising involves more than drawing.
+                You should use the source carefully, create an appropriate
+                representation, record useful attributes and check
+                the resulting feature.
+
+            </div>
+
+
+            <div id="wrongFeedback"
+                 class="feedback wrong"
+                 style="display:none;">
+
+                Not quite.
+
+                <br><br>
+
+                Remember that you are creating data that someone else
+                may later use for mapping or analysis.
+
+                <br><br>
+
+                The feature should be created carefully,
+                described properly and checked.
+
+            </div>
+
+        </div>
+
+
+        <!-- QUALITY CONNECTION -->
+
+        <div class="quality">
+
+            <h3>🔗 Week 4 Is Still With You</h3>
+
+            <p>
+                Last week, you evaluated the quality of data
+                created by someone else.
+            </p>
+
+            <p>
+                This week, <strong>you are the data creator.</strong>
+            </p>
+
+
+            <div class="quality-grid">
+
+                <div class="quality-item">
+                    📍 <strong>WHERE?</strong><br>
+                    Did I place it correctly?
+                </div>
+
+                <div class="quality-item">
+                    📝 <strong>WHAT?</strong><br>
+                    Did I enter the correct information?
+                </div>
+
+                <div class="quality-item">
+                    🧩 <strong>MISSING?</strong><br>
+                    Did I capture everything required?
+                </div>
+
+                <div class="quality-item">
+                    🔄 <strong>CONSISTENT?</strong><br>
+                    Did I follow the same rules?
+                </div>
+
+            </div>
+
+            <p style="
+                margin-bottom:0;
+                margin-top:18px;
+                font-weight:bold;">
+                Good GIS data begin with good decisions
+                during data creation.
+            </p>
+
+        </div>
+
+
+        <!-- COMPLETE FLOW -->
+
+        <div class="full-flow">
+
+            <h3>From the Real World to a GIS Feature</h3>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    🌍<br>
+                    REAL WORLD
+                </div>
+
+                <div class="flow-arrow">→</div>
+
+                <div class="flow-box">
+                    👀<br>
+                    OBSERVE
+                </div>
+
+                <div class="flow-arrow">→</div>
+
+                <div class="flow-box">
+                    🎯<br>
+                    REPRESENT
+                </div>
+
+                <div class="flow-arrow">→</div>
+
+                <div class="flow-box">
+                    ✏️<br>
+                    DIGITISE
+                </div>
+
+                <div class="flow-arrow">→</div>
+
+                <div class="flow-box">
+                    📝<br>
+                    DESCRIBE
+                </div>
+
+                <div class="flow-arrow">→</div>
+
+                <div class="flow-box">
+                    ✓<br>
+                    CHECK
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- TAKEAWAY -->
+
+        <div class="takeaway">
+
+            <h3>💡 What You Should Take Away</h3>
+
+            <p>
+                Digitising is not simply drawing on a map.
+            </p>
+
+            <p>
+                When creating a GIS feature, you make decisions about:
+            </p>
+
+            <ul>
+                <li>which real-world object needs to be represented;</li>
+                <li>how that object should be represented;</li>
+                <li>where its geometry should be created;</li>
+                <li>what information should describe it; and</li>
+                <li>whether the resulting feature is reliable.</li>
+            </ul>
+
+            <p style="margin-bottom:0;">
+                <strong>
+                    You are not just making a map.
+                    You are creating geographic data.
+                </strong>
+            </p>
+
+        </div>
+
+
+        <!-- READING HANDOFF -->
+
+        <div class="reading">
+
+            <strong>📘 Before Moving On...</strong>
+
+            <p>
+                We mentioned an important decision during digitising:
+            </p>
+
+            <p style="
+                font-size:18px;
+                color:#102b49;
+                font-weight:bold;">
+                Should a real-world feature be represented
+                as a point, line or polygon?
+            </p>
+
+            <p>
+                Your next reading explores these three geometries
+                more closely.
+            </p>
+
+            <p style="margin-bottom:0;">
+                <strong>Focus on:</strong>
+                what each geometry represents and the kinds of
+                real-world features for which it is appropriate.
+            </p>
+
+        </div>
+
+
+        <!-- NEXT -->
+
+        <div class="next">
+
+            <div class="next-label">
+                NEXT
+            </div>
+
+            <div class="next-title">
+                📘 READING 02 — How Does GIS Represent Real-World Features?
+            </div>
+
+            <p style="margin:8px 0 0;color:#e5f4f2;">
+                Read <strong style="color:#ffffff;">pages 51–52 only</strong>
+            </p>
+
+            <p style="margin:5px 0 0;color:#c8f4e9;">
+                Focus: Points · Lines · Polygons
+            </p>
+
+        </div>
 
     </div>
 
-</div>
-
-
-<!-- ATTRIBUTE EXAMPLE -->
-
-<h2 style="margin-top:35px;">
-    📝 What might the attributes look like?
-</h2>
-
-<p>
-    Imagine you have created three bicycle parking points.
-    Their attribute table might contain:
-</p>
-
-<div class="table-wrap">
-
-<table>
-
-<tr>
-    <th>ID</th>
-    <th>Facility Name</th>
-    <th>Capacity</th>
-    <th>Covered?</th>
-    <th>Condition</th>
-</tr>
-
-<tr>
-    <td>BP001</td>
-    <td>Library Bicycle Parking</td>
-    <td>20</td>
-    <td>Yes</td>
-    <td>Good</td>
-</tr>
-
-<tr>
-    <td>BP002</td>
-    <td>Faculty Block A</td>
-    <td>12</td>
-    <td>No</td>
-    <td>Good</td>
-</tr>
-
-<tr>
-    <td>BP003</td>
-    <td>Student Centre</td>
-    <td>30</td>
-    <td>Yes</td>
-    <td>Needs Repair</td>
-</tr>
-
-</table>
-
-</div>
-
-<p>
-    The map tells us <strong>where</strong> the bicycle parking is.
-    The attribute table tells us <strong>what we know about it</strong>.
-</p>
-
-
-<!-- PROCESS -->
-
-<div class="process">
-
-<h2>🛠️ The Basic Digitising Process</h2>
-
-<p>
-    The exact buttons differ between GIS software, but the idea is similar:
-</p>
-
-<div class="flow">
-
-    <div class="flow-box">
-        👀<br>
-        OBSERVE
-    </div>
-
-    <div class="arrow">→</div>
-
-    <div class="flow-box">
-        🎯<br>
-        CHOOSE<br>GEOMETRY
-    </div>
-
-    <div class="arrow">→</div>
-
-    <div class="flow-box">
-        ✏️<br>
-        CREATE<br>FEATURE
-    </div>
-
-    <div class="arrow">→</div>
-
-    <div class="flow-box">
-        📝<br>
-        ADD<br>ATTRIBUTES
-    </div>
-
-    <div class="arrow">→</div>
-
-    <div class="flow-box">
-        ✓<br>
-        CHECK
-    </div>
-
-</div>
-
-</div>
-
-
-<!-- QUALITY -->
-
-<div class="quality">
-
-<h3>🔗 Week 4 Is Still With Us</h3>
-
-<p>
-    When you create GIS data, you also create the possibility of error.
-</p>
-
-<div class="quality-grid">
-
-    <div class="quality-item">
-        📍 <strong>Position</strong><br>
-        Did I place the feature in the correct location?
-    </div>
-
-    <div class="quality-item">
-        ✏️ <strong>Geometry</strong><br>
-        Did I trace its shape appropriately?
-    </div>
-
-    <div class="quality-item">
-        📝 <strong>Attributes</strong><br>
-        Did I enter the correct information?
-    </div>
-
-    <div class="quality-item">
-        🧩 <strong>Completeness</strong><br>
-        Did I capture all required features?
-    </div>
-
-    <div class="quality-item">
-        🔄 <strong>Consistency</strong><br>
-        Did I follow the same rules for every feature?
-    </div>
-
-    <div class="quality-item">
-        🎯 <strong>Purpose</strong><br>
-        Is this representation suitable for the intended use?
-    </div>
-
-</div>
-
-</div>
-
-
-<!-- FINAL CHECK -->
-
-<div class="final-check">
-
-<h2>🧠 Check Your Understanding</h2>
-
-<div class="final-question">
-
-<p>
-    You are creating a detailed campus map.
-    You trace the outline of a parking area correctly,
-    but enter its capacity as <strong>500</strong> instead of
-    <strong>50</strong>.
-</p>
-
-<p>
-    What is wrong?
-</p>
-
-<button class="option" onclick="finalAnswer(false)">
-    A. The geometry is wrong
-</button>
-
-<button class="option" onclick="finalAnswer(true)">
-    B. The attribute is wrong
-</button>
-
-<button class="option" onclick="finalAnswer(false)">
-    C. The parking area should always be a line
-</button>
-
-<button class="option" onclick="finalAnswer(false)">
-    D. Nothing is wrong
-</button>
-
-
-<div id="finalCorrect"
-     class="feedback correct"
-     style="display:none;">
-
-    ✓ <strong>Correct.</strong>
-
-    The polygon may be spatially correct, but the
-    <strong>attribute value is incorrect</strong>.
-
-    <br><br>
-
-    Reliable GIS data require both correct geometry
-    <strong>and</strong> correct attributes.
-
-</div>
-
-
-<div id="finalWrong"
-     class="feedback wrong"
-     style="display:none;">
-
-    Not quite.
-
-    <br><br>
-
-    The parking area was traced correctly.
-    Look at the information stored about the feature.
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- TAKEAWAY -->
-
-<div class="takeaway">
-
-<h3>💡 What You Should Take Away</h3>
-
-<p>
-    Digitising is not simply drawing something on a map.
-</p>
-
-<p>
-    You are making decisions about:
-</p>
-
-<ul>
-    <li>what real-world feature should be represented;</li>
-    <li>whether it should be a point, line or polygon;</li>
-    <li>where and how its geometry should be created;</li>
-    <li>which attributes should describe it; and</li>
-    <li>whether the resulting data are reliable enough for their purpose.</li>
-</ul>
-
-<p style="margin-bottom:0;">
-    <strong>
-        Good GIS data begin with good decisions during data creation.
-    </strong>
-</p>
-
-</div>
-
-
-<!-- NEXT -->
-
-<div class="next">
-
-    You now know how a real-world object can become a
-    <strong>vector GIS feature.</strong>
-
-    <br><br>
-
-    But what if the information you receive is not visible on imagery?
-
-    <br><br>
-
-    What if all you have is:
-
-    <strong>“Hang Tuah Jaya, Melaka”</strong>
-
-    or a list of addresses?
-
-    <br><br>
-
-    <strong>
-        NEXT → 📘 READING 02<br>
-        Creating GIS Features: Geometry + Attributes
-    </strong>
-
-</div>
-
-</div>
 </div>
 
 
 <script>
 
-const features = [
+function checkAnswer(isCorrect) {
 
-    {
-        icon:"🚏",
-        title:"Campus Bus Stop",
-        question:"How would you represent the location of a bus stop?",
-        correct:"point",
-        good:"✓ POINT is appropriate when the purpose is to show the bus stop as a location.",
-        wrong:"Think about what matters here: the location of the bus stop."
-    },
+    var correct =
+        document.getElementById("correctFeedback");
 
-    {
-        icon:"🚶",
-        title:"Pedestrian Path",
-        question:"How would you represent the route of a pedestrian path?",
-        correct:"line",
-        good:"✓ LINE is appropriate because the path has length and represents a route.",
-        wrong:"Think about the feature's length and the route that people follow."
-    },
-
-    {
-        icon:"🅿️",
-        title:"Campus Parking Area",
-        question:"For a detailed campus map, how would you represent the area occupied by a parking facility?",
-        correct:"polygon",
-        good:"✓ POLYGON is appropriate because we want to represent the area and boundary of the parking facility.",
-        wrong:"The question asks you to represent the area occupied by the parking facility."
-    },
-
-    {
-        icon:"🏢",
-        title:"University Building",
-        question:"For a detailed campus map, how would you represent the building footprint?",
-        correct:"polygon",
-        good:"✓ POLYGON is appropriate when the purpose is to show the building footprint and its area.",
-        wrong:"Think about the building's footprint on a detailed campus map."
-    }
-
-];
-
-let currentFeature = 0;
-
-
-function answerGeometry(answer) {
-
-    const feature = features[currentFeature];
-
-    const correct =
-        document.getElementById("geometryCorrect");
-
-    const wrong =
-        document.getElementById("geometryWrong");
-
-    const next =
-        document.getElementById("nextObject");
+    var wrong =
+        document.getElementById("wrongFeedback");
 
     correct.style.display = "none";
     wrong.style.display = "none";
 
-    if (answer === feature.correct) {
+    if (isCorrect) {
 
-        correct.innerHTML = feature.good;
         correct.style.display = "block";
-        next.style.display = "block";
 
     } else {
 
-        wrong.innerHTML = feature.wrong;
         wrong.style.display = "block";
-        next.style.display = "none";
-    }
-}
-
-
-function nextFeature() {
-
-    currentFeature++;
-
-    if (currentFeature >= features.length) {
-
-        currentFeature = 0;
-
-        document.getElementById("nextObject").innerHTML =
-            "TRY AGAIN ↻";
-
-    } else {
-
-        document.getElementById("nextObject").innerHTML =
-            "NEXT FEATURE →";
-    }
-
-    const feature = features[currentFeature];
-
-    document.getElementById("objectIcon").innerHTML =
-        feature.icon;
-
-    document.getElementById("objectTitle").innerHTML =
-        feature.title;
-
-    document.getElementById("objectQuestion").innerHTML =
-        feature.question;
-
-    document.getElementById("geometryCorrect").style.display =
-        "none";
-
-    document.getElementById("geometryWrong").style.display =
-        "none";
-
-    document.getElementById("nextObject").style.display =
-        "none";
-}
-
-
-function finalAnswer(correctAnswer) {
-
-    document.getElementById("finalCorrect").style.display =
-        "none";
-
-    document.getElementById("finalWrong").style.display =
-        "none";
-
-    if (correctAnswer) {
-
-        document.getElementById("finalCorrect").style.display =
-            "block";
-
-    } else {
-
-        document.getElementById("finalWrong").style.display =
-            "block";
     }
 }
 
