@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Week 5 - 06 DO | Data Creator Challenge</title>
+
+<style>
+
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f4f7f9;
+    color:#24323b;
+    line-height:1.65;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    background:#ffffff;
+    min-height:100vh;
+}
+
+.header{
+    background:linear-gradient(135deg,#102b49,#145c72,#087366);
+    color:white;
+    padding:36px 40px;
+}
+
+.week{
+    font-size:13px;
+    font-weight:bold;
+    letter-spacing:1.5px;
+    color:#c8f4e9;
+}
+
+.header h1{
+    margin:6px 0 0;
+    font-size:34px;
+}
+
+.header p{
+    margin:5px 0 0;
+    color:#e5f4f2;
+    font-size:17px;
+}
+
+.content{
+    padding:35px 40px 50px;
+}
+
+.label{
+    display:inline-block;
+    background:#087366;
+    color:white;
+    padding:6px 13px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+h2{
+    color:#102b49;
+}
+
+h3{
+    color:#102b49;
+}
+
+/* MISSION */
+
+.mission{
+    background:#102b49;
+    color:white;
+    border-radius:15px;
+    padding:27px;
+    margin:25px 0;
+}
+
+.mission-tag{
+    color:#9de3d8;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+.mission h2{
+    color:white;
+    margin:5px 0 10px;
+}
+
+.mission p{
+    margin-bottom:0;
+}
+
+/* SCENARIO */
+
+.scenario{
+    background:#eef8f5;
+    border:2px solid #a8d8cc;
+    border-radius:14px;
+    padding:24px;
+    margin:28px 0;
+}
+
+.scenario h3{
+    color:#087366;
+    margin-top:0;
+}
+
+/* TABLE */
+
+.table-wrap{
+    overflow-x:auto;
+    margin:20px 0;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:720px;
+}
+
+th{
+    background:#102b49;
+    color:white;
+    padding:11px;
+    text-align:left;
+}
+
+td{
+    border:1px solid #d7e0e5;
+    padding:11px;
+}
+
+tr:nth-child(even){
+    background:#f7fafb;
+}
+
+.problem-cell{
+    background:#fff3cd;
+}
+
+/* TASK */
+
+.task{
+    border:2px solid #dbe5e9;
+    border-radius:14px;
+    padding:24px;
+    margin:28px 0;
+    background:#ffffff;
+}
+
+.task-number{
+    display:inline-flex;
+    width:38px;
+    height:38px;
+    background:#087366;
+    color:white;
+    border-radius:50%;
+    justify-content:center;
+    align-items:center;
+    font-weight:bold;
+    margin-right:8px;
+}
+
+.task-title{
+    font-size:20px;
+    font-weight:bold;
+    color:#102b49;
+}
+
+/* OPTIONS */
+
+.option{
+    display:block;
+    width:100%;
+    background:#ffffff;
+    border:1px solid #ccd9df;
+    border-radius:8px;
+    padding:13px 15px;
+    margin:9px 0;
+    text-align:left;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.option:hover{
+    background:#eef8f5;
+    border-color:#087366;
+}
+
+.feedback{
+    display:none;
+    margin-top:14px;
+    padding:15px;
+    border-radius:8px;
+}
+
+.correct{
+    background:#e7f7ee;
+    border-left:5px solid #198754;
+}
+
+.wrong{
+    background:#fff3e0;
+    border-left:5px solid #d99a21;
+}
+
+/* PROCESS */
+
+.process{
+    background:#f4f1fb;
+    border-left:5px solid #7254a3;
+    padding:22px;
+    border-radius:9px;
+    margin:30px 0;
+}
+
+.flow{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:18px;
+}
+
+.flow-box{
+    background:white;
+    border:1px solid #d9d0e8;
+    border-radius:8px;
+    padding:12px;
+    min-width:110px;
+    text-align:center;
+    font-weight:bold;
+}
+
+.arrow{
+    color:#7254a3;
+    font-size:21px;
+    font-weight:bold;
+}
+
+/* FINAL DECISION */
+
+.final{
+    background:#eef8f5;
+    border:2px solid #a8d8cc;
+    border-radius:14px;
+    padding:25px;
+    margin:30px 0;
+}
+
+.verdicts{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin-top:18px;
+}
+
+.verdict{
+    border:1px solid #cfe2dd;
+    background:white;
+    border-radius:10px;
+    padding:17px;
+    text-align:center;
+    cursor:pointer;
+}
+
+.verdict:hover{
+    border-color:#087366;
+    background:#f5fbf9;
+}
+
+.verdict-icon{
+    font-size:30px;
+}
+
+#finalFeedback{
+    display:none;
+    background:#e7f7ee;
+    border-left:5px solid #198754;
+    padding:17px;
+    border-radius:8px;
+    margin-top:18px;
+}
+
+/* SCORE */
+
+.scorebox{
+    display:none;
+    background:#102b49;
+    color:white;
+    border-radius:13px;
+    padding:22px;
+    text-align:center;
+    margin:30px 0;
+}
+
+.score{
+    font-size:35px;
+    font-weight:bold;
+    color:#9de3d8;
+}
+
+/* TAKEAWAY */
+
+.takeaway{
+    border:2px solid #a8d8cc;
+    background:#f8fcfb;
+    border-radius:13px;
+    padding:23px;
+    margin-top:30px;
+}
+
+.takeaway h3{
+    color:#087366;
+    margin-top:0;
+}
+
+/* NEXT */
+
+.next{
+    background:#102b49;
+    color:white;
+    border-radius:12px;
+    padding:22px;
+    margin-top:30px;
+    text-align:center;
+}
+
+.next-label{
+    color:#9de3d8;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+.next-title{
+    font-size:19px;
+    font-weight:bold;
+    margin-top:5px;
+}
+
+@media(max-width:700px){
+
+    .header,
+    .content{
+        padding-left:20px;
+        padding-right:20px;
+    }
+
+    .verdicts{
+        grid-template-columns:1fr;
+    }
+
+    .flow{
+        flex-direction:column;
+    }
+
+    .arrow{
+        transform:rotate(90deg);
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+
+<div class="header">
+
+    <div class="week">
+        BITP3483 · WEEK 5 · PREPARE
+    </div>
+
+    <h1>06 🛠️ DO</h1>
+
+    <p>Data Creator Challenge</p>
+
+</div>
+
+
+<div class="content">
+
+<div class="label">
+YOUR TURN
+</div>
+
+<h2>Can You Make the Data Ready for GIS?</h2>
+
+<p>
+You have learned how geographic data can be
+created, located, connected and prepared.
+</p>
+
+<p>
+Now you are the <strong>data creator</strong>.
+</p>
+
+
+<!-- MISSION -->
+
+<div class="mission">
+
+<div class="mission-tag">
+YOUR MISSION
+</div>
+
+<h2>Prepare the Campus Facilities Data</h2>
+
+<p>
+Another team wants to use your data in GIS.
+
+Before you hand it over, decide what needs
+to be checked or fixed.
+</p>
+
+</div>
+
+
+<!-- SCENARIO -->
+
+<div class="scenario">
+
+<h3>📥 The Dataset Arrives</h3>
+
+<p>
+You receive the following campus facilities table.
+</p>
+
+<p style="margin-bottom:0;">
+Your task is to inspect it before anyone uses it
+for mapping or analysis.
+</p>
+
+</div>
+
+
+<!-- DATA -->
+
+<div class="table-wrap">
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Facility Type</th>
+<th>Building</th>
+<th>Capacity</th>
+<th>Address</th>
+</tr>
+
+<tr>
+<td>F001</td>
+<td>Computer Lab</td>
+<td>FTMK</td>
+<td>40</td>
+<td>Hang Tuah Jaya</td>
+</tr>
+
+<tr>
+<td>F002</td>
+<td class="problem-cell">computer laboratory</td>
+<td>FTMK</td>
+<td>35</td>
+<td>Hang Tuah Jaya</td>
+</tr>
+
+<tr>
+<td>F003</td>
+<td class="problem-cell">COMP LAB</td>
+<td>FKEKK</td>
+<td class="problem-cell">Thirty</td>
+<td>Durian Tunggal</td>
+</tr>
+
+<tr>
+<td>F004</td>
+<td>Computer Lab</td>
+<td>FTKE</td>
+<td>40</td>
+<td class="problem-cell">—</td>
+</tr>
+
+<tr>
+<td class="problem-cell">F004</td>
+<td>Computer Lab</td>
+<td>FTKE</td>
+<td>40</td>
+<td class="problem-cell">—</td>
+</tr>
+
+</table>
+
+</div>
+
+<p style="
+    text-align:center;
+    font-weight:bold;
+    color:#087366;">
+The highlighted cells are clues — but you must decide
+what the problems mean.
+</p>
+
+
+<!-- TASK 1 -->
+
+<div class="task">
+
+<div>
+<span class="task-number">1</span>
+<span class="task-title">Spot the Consistency Problem</span>
+</div>
+
+<p>
+Look at the <strong>Facility Type</strong> field.
+</p>
+
+<p>
+What is the main problem?
+</p>
+
+<button class="option"
+onclick="answer(1,true)">
+A. The same facility type is written in different ways
+</button>
+
+<button class="option"
+onclick="answer(1,false)">
+B. Every facility must have a different name
+</button>
+
+<button class="option"
+onclick="answer(1,false)">
+C. GIS cannot store text
+</button>
+
+<div id="c1" class="feedback correct">
+
+✓ Correct.
+
+<br><br>
+
+<strong>Computer Lab</strong>,
+<strong>computer laboratory</strong> and
+<strong>COMP LAB</strong> may describe the same category.
+
+Using consistent values will make classification,
+querying and analysis more reliable.
+
+</div>
+
+<div id="w1" class="feedback wrong">
+
+Not quite.
+
+<br><br>
+
+Compare how the same type of facility
+has been recorded in different rows.
+
+</div>
+
+</div>
+
+
+<!-- TASK 2 -->
+
+<div class="task">
+
+<div>
+<span class="task-number">2</span>
+<span class="task-title">Check the Capacity</span>
+</div>
+
+<p>
+Most capacity values are numbers:
+<strong>40, 35, 40</strong>.
+</p>
+
+<p>
+But one record contains:
+<strong>Thirty</strong>.
+</p>
+
+<p>
+What should you notice?
+</p>
+
+<button class="option"
+onclick="answer(2,true)">
+A. The values are not recorded in a consistent format
+</button>
+
+<button class="option"
+onclick="answer(2,false)">
+B. Thirty is geographically incorrect
+</button>
+
+<button class="option"
+onclick="answer(2,false)">
+C. Capacity should be stored as an address
+</button>
+
+<div id="c2" class="feedback correct">
+
+✓ Correct.
+
+<br><br>
+
+If capacity is intended to represent a number,
+the values should be recorded consistently.
+
+</div>
+
+<div id="w2" class="feedback wrong">
+
+Not quite.
+
+<br><br>
+
+Think about how GIS may later need to compare,
+calculate or analyse these capacity values.
+
+</div>
+
+</div>
+
+
+<!-- TASK 3 -->
+
+<div class="task">
+
+<div>
+<span class="task-number">3</span>
+<span class="task-title">Find the Duplicate</span>
+</div>
+
+<p>
+Two rows use the same identifier:
+<strong>F004</strong>.
+</p>
+
+<p>
+What should you do first?
+</p>
+
+<button class="option"
+onclick="answer(3,true)">
+A. Check whether the same facility has been recorded twice
+</button>
+
+<button class="option"
+onclick="answer(3,false)">
+B. Keep both automatically because more data are always better
+</button>
+
+<button class="option"
+onclick="answer(3,false)">
+C. Change one ID without checking the real-world facility
+</button>
+
+<div id="c3" class="feedback correct">
+
+✓ Correct.
+
+<br><br>
+
+A repeated identifier may indicate a duplicate,
+but you should investigate before deleting or changing anything.
+
+</div>
+
+<div id="w3" class="feedback wrong">
+
+Not quite.
+
+<br><br>
+
+A repeated identifier is a warning.
+First determine whether the records actually represent
+the same real-world feature.
+
+</div>
+
+</div>
+
+
+<!-- TASK 4 -->
+
+<div class="task">
+
+<div>
+<span class="task-number">4</span>
+<span class="task-title">Can We Locate Every Record?</span>
+</div>
+
+<p>
+The F004 record has no address.
+</p>
+
+<p>
+What does this mean?
+</p>
+
+<button class="option"
+onclick="answer(4,false)">
+A. The facility definitely does not exist
+</button>
+
+<button class="option"
+onclick="answer(4,true)">
+B. More location information may be needed before it can be reliably located
+</button>
+
+<button class="option"
+onclick="answer(4,false)">
+C. GIS will automatically know the correct location
+</button>
+
+<div id="c4" class="feedback correct">
+
+✓ Correct.
+
+<br><br>
+
+Missing location information does not mean
+the facility does not exist.
+
+It means you may need another source before
+you can confidently locate it.
+
+</div>
+
+<div id="w4" class="feedback wrong">
+
+Not quite.
+
+<br><br>
+
+Remember what you learned in
+<strong>04 LEARN — Geocoding</strong>.
+
+A location description must be sufficient
+for a reliable geographic match.
+
+</div>
+
+</div>
+
+
+<!-- TASK 5 -->
+
+<div class="task">
+
+<div>
+<span class="task-number">5</span>
+<span class="task-title">Should You Guess the Missing Value?</span>
+</div>
+
+<p>
+Suppose a capacity value is blank.
+</p>
+
+<p>
+What is the best action?
+</p>
+
+<button class="option"
+onclick="answer(5,false)">
+A. Enter 0 because blank means zero
+</button>
+
+<button class="option"
+onclick="answer(5,false)">
+B. Copy the capacity from the previous row
+</button>
+
+<button class="option"
+onclick="answer(5,true)">
+C. Treat it as missing and verify it from an appropriate source
+</button>
+
+<div id="c5" class="feedback correct">
+
+✓ Correct.
+
+<br><br>
+
+<strong>Missing does not automatically mean zero.</strong>
+
+You should not invent a value simply to make
+the dataset look complete.
+
+</div>
+
+<div id="w5" class="feedback wrong">
+
+Not quite.
+
+<br><br>
+
+Do not invent information.
+
+A missing value should be investigated
+using an appropriate source.
+
+</div>
+
+</div>
+
+
+<!-- PROCESS -->
+
+<div class="process">
+
+<strong style="color:#7254a3;font-size:18px;">
+🧩 What Have You Just Done?
+</strong>
+
+<div class="flow">
+
+<div class="flow-box">
+👀<br>INSPECT
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box">
+🔎<br>IDENTIFY
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box">
+🧹<br>CLEAN
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box">
+🔄<br>STANDARDISE
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box">
+✓<br>CHECK
+</div>
+
+</div>
+
+<p style="margin-bottom:0;">
+These are part of preparing data before
+you rely on them in GIS.
+</p>
+
+</div>
+
+
+<!-- FINAL DECISION -->
+
+<div class="final">
+
+<h2 style="margin-top:0;">
+⚖️ Final Decision
+</h2>
+
+<p>
+You have identified:
+</p>
+
+<ul>
+<li>inconsistent facility categories;</li>
+<li>inconsistent capacity values;</li>
+<li>a possible duplicate;</li>
+<li>missing location information.</li>
+</ul>
+
+<p>
+Someone asks:
+</p>
+
+<p style="
+    text-align:center;
+    font-size:19px;
+    font-weight:bold;
+    color:#102b49;">
+“Can I use this dataset for GIS analysis right now?”
+</p>
+
+<p>
+Choose your verdict.
+</p>
+
+
+<div class="verdicts">
+
+<div class="verdict"
+onclick="finalDecision('use')">
+
+<div class="verdict-icon">✓</div>
+<strong>USE IT</strong>
+
+</div>
+
+
+<div class="verdict"
+onclick="finalDecision('caution')">
+
+<div class="verdict-icon">⚠️</div>
+<strong>USE WITH CAUTION</strong>
+
+</div>
+
+
+<div class="verdict"
+onclick="finalDecision('notyet')">
+
+<div class="verdict-icon">🛠️</div>
+<strong>DO NOT USE YET</strong>
+
+</div>
+
+</div>
+
+
+<div id="finalFeedback"></div>
+
+</div>
+
+
+<!-- SCORE -->
+
+<div id="scoreBox" class="scorebox">
+
+<div>
+CHALLENGE SCORE
+</div>
+
+<div id="score" class="score">
+0 / 5
+</div>
+
+<div id="scoreMessage"></div>
+
+</div>
+
+
+<!-- TAKEAWAY -->
+
+<div class="takeaway">
+
+<h3>💡 Data Creator Takeaway</h3>
+
+<p>
+Preparing data does not mean changing values
+until the dataset looks perfect.
+</p>
+
+<p>
+It means recognising problems,
+checking them against appropriate evidence,
+and making careful decisions before the data
+are used for mapping or analysis.
+</p>
+
+<p style="margin-bottom:0;">
+<strong>
+Never “fix” geographic data by guessing.
+</strong>
+</p>
+
+</div>
+
+
+<!-- WEEK 5 CONNECTION -->
+
+<div style="
+    background:#eef8f5;
+    border-radius:13px;
+    padding:23px;
+    margin-top:28px;">
+
+<strong style="color:#087366;font-size:18px;">
+🔗 You Have Now Used the Week 5 Mindset
+</strong>
+
+<p>
+<strong>03 LEARN:</strong>
+How can I create the feature?
+</p>
+
+<p>
+<strong>04 LEARN:</strong>
+How can I locate it from an address?
+</p>
+
+<p>
+<strong>05 CONNECT:</strong>
+How can I bring information together?
+</p>
+
+<p style="margin-bottom:0;">
+<strong>06 DO:</strong>
+What must I check before the data are ready?
+</p>
+
+</div>
+
+
+<!-- NEXT -->
+
+<div class="next">
+
+<div class="next-label">
+NEXT
+</div>
+
+<div class="next-title">
+07 🖥️ CHECK — Are You Ready?
+</div>
+
+<p style="margin:7px 0 0;color:#e5f4f2;">
+One final check before you move into the practical.
+</p>
+
+</div>
+
+</div>
+</div>
+
+
+<script>
+
+let score = 0;
+let answered = {
+    1:false,
+    2:false,
+    3:false,
+    4:false,
+    5:false
+};
+
+function answer(q,correct){
+
+    document.getElementById("c"+q).style.display="none";
+    document.getElementById("w"+q).style.display="none";
+
+    if(correct){
+
+        document.getElementById("c"+q).style.display="block";
+
+        if(!answered[q]){
+            score++;
+        }
+
+    }else{
+
+        document.getElementById("w"+q).style.display="block";
+
+    }
+
+    answered[q]=true;
+
+    updateScore();
+}
+
+
+function updateScore(){
+
+    let totalAnswered = 0;
+
+    for(let i=1;i<=5;i++){
+        if(answered[i]){
+            totalAnswered++;
+        }
+    }
+
+    if(totalAnswered===5){
+
+        document.getElementById("scoreBox").style.display="block";
+
+        document.getElementById("score").innerHTML =
+            score + " / 5";
+
+        let message="";
+
+        if(score===5){
+
+            message=
+            "Excellent — you are thinking like a careful GIS data creator.";
+
+        }else if(score>=3){
+
+            message=
+            "Good work. Review the feedback before moving on.";
+
+        }else{
+
+            message=
+            "Take another look at the data-quality clues before continuing.";
+        }
+
+        document.getElementById("scoreMessage").innerHTML=message;
+
+    }
+}
+
+
+function finalDecision(choice){
+
+    let box=document.getElementById("finalFeedback");
+
+    box.style.display="block";
+
+    if(choice==="notyet"){
+
+        box.style.background="#e7f7ee";
+        box.style.borderLeft="5px solid #198754";
+
+        box.innerHTML=
+        "<strong>✓ Best decision.</strong><br><br>" +
+        "For analysis, the identified problems should be investigated " +
+        "and prepared before the dataset is relied upon.<br><br>" +
+        "Remember: <strong>prepare first, analyse later.</strong>";
+
+    }else if(choice==="caution"){
+
+        box.style.background="#fff7e6";
+        box.style.borderLeft="5px solid #e0a126";
+
+        box.innerHTML=
+        "<strong>Reasonable thought — but consider the purpose.</strong>" +
+        "<br><br>For a very limited purpose, some parts of the data may " +
+        "still be useful. However, because the task specifically asks " +
+        "whether it is ready for GIS analysis, the identified problems " +
+        "should be resolved first.";
+
+    }else{
+
+        box.style.background="#fdecec";
+        box.style.borderLeft="5px solid #c65b5b";
+
+        box.innerHTML=
+        "<strong>Not yet.</strong><br><br>" +
+        "You have already found several issues that could affect the " +
+        "results. Investigate and prepare them before analysis.";
+    }
+
+}
+
+</script>
+
+</body>
+</html>
