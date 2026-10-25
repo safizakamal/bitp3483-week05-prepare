@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Week 5 - 04 LEARN | Geocoding</title>
+
+<style>
+
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f4f7f9;
+    color:#24323b;
+    line-height:1.65;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    background:#ffffff;
+    min-height:100vh;
+}
+
+.header{
+    background:linear-gradient(135deg,#102b49,#145c72,#087366);
+    color:white;
+    padding:36px 40px;
+}
+
+.week{
+    font-size:13px;
+    font-weight:bold;
+    letter-spacing:1.5px;
+    color:#c8f4e9;
+}
+
+.header h1{
+    margin:6px 0 0;
+    font-size:34px;
+}
+
+.header p{
+    margin:5px 0 0;
+    color:#e5f4f2;
+    font-size:17px;
+}
+
+.content{
+    padding:35px 40px 50px;
+}
+
+.label{
+    display:inline-block;
+    background:#087366;
+    color:white;
+    padding:6px 13px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+h2{
+    color:#102b49;
+    margin-top:12px;
+}
+
+h3{
+    color:#102b49;
+}
+
+/* CONNECTION */
+
+.connection{
+    background:#f4f1fb;
+    border-left:5px solid #7254a3;
+    padding:20px 22px;
+    border-radius:9px;
+    margin:25px 0;
+}
+
+/* PROBLEM */
+
+.problem{
+    background:#fff7e6;
+    border-left:5px solid #e0a126;
+    border-radius:10px;
+    padding:24px;
+    margin:28px 0;
+}
+
+.problem h3{
+    margin-top:0;
+}
+
+.data-table{
+    width:100%;
+    border-collapse:collapse;
+    margin:18px 0;
+}
+
+.data-table th{
+    background:#102b49;
+    color:white;
+    padding:11px;
+    text-align:left;
+}
+
+.data-table td{
+    padding:11px;
+    border:1px solid #d7e0e5;
+}
+
+.data-table tr:nth-child(even){
+    background:#f7fafb;
+}
+
+/* QUESTION */
+
+.big-question{
+    background:#102b49;
+    color:white;
+    border-radius:14px;
+    padding:25px;
+    text-align:center;
+    margin:30px 0;
+}
+
+.big-question small{
+    display:block;
+    color:#9de3d8;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+.big-question strong{
+    display:block;
+    margin-top:7px;
+    font-size:23px;
+}
+
+/* REVEAL */
+
+.reveal{
+    text-align:center;
+    margin:25px 0;
+}
+
+.reveal button{
+    background:#087366;
+    color:white;
+    border:none;
+    padding:13px 22px;
+    border-radius:25px;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.reveal button:hover{
+    background:#065c52;
+}
+
+#answer{
+    display:none;
+    margin-top:18px;
+    background:#e7f7ee;
+    border-left:5px solid #198754;
+    padding:18px;
+    border-radius:8px;
+}
+
+/* DEFINITION */
+
+.definition{
+    background:linear-gradient(135deg,#e9f7f3,#f8fcfb);
+    border:2px solid #a8d8cc;
+    border-radius:13px;
+    padding:23px;
+    margin:30px 0;
+}
+
+.definition-title{
+    color:#087366;
+    font-size:21px;
+    font-weight:bold;
+}
+
+/* FLOW */
+
+.flow-section{
+    margin:35px 0;
+}
+
+.flow{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:20px;
+}
+
+.flow-box{
+    background:#f7fafb;
+    border:2px solid #d8e3e7;
+    border-radius:10px;
+    padding:18px;
+    min-width:145px;
+    text-align:center;
+    font-weight:bold;
+}
+
+.flow-icon{
+    font-size:35px;
+    margin-bottom:5px;
+}
+
+.arrow{
+    color:#087366;
+    font-size:25px;
+    font-weight:bold;
+}
+
+/* EXAMPLE */
+
+.example{
+    border:2px solid #a8d8cc;
+    border-radius:13px;
+    overflow:hidden;
+    margin:35px 0;
+}
+
+.example-title{
+    background:#087366;
+    color:white;
+    padding:14px 20px;
+    font-weight:bold;
+}
+
+.example-body{
+    padding:23px;
+}
+
+.address{
+    background:#f7fafb;
+    border-radius:9px;
+    padding:17px;
+    text-align:center;
+    font-size:18px;
+    font-weight:bold;
+    color:#102b49;
+}
+
+.result{
+    background:#eef8f5;
+    border-radius:9px;
+    padding:18px;
+    margin-top:15px;
+    text-align:center;
+}
+
+/* MATCHES */
+
+.match-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin:25px 0;
+}
+
+.match{
+    border-radius:12px;
+    padding:20px;
+    text-align:center;
+}
+
+.match-icon{
+    font-size:36px;
+}
+
+.matched{
+    background:#e7f7ee;
+    border:2px solid #a6d8bb;
+}
+
+.review{
+    background:#fff7e6;
+    border:2px solid #e4c779;
+}
+
+.unmatched{
+    background:#fdecec;
+    border:2px solid #e3aaaa;
+}
+
+/* WARNING */
+
+.warning{
+    background:#fff7e6;
+    border-left:5px solid #e0a126;
+    padding:22px;
+    border-radius:9px;
+    margin:30px 0;
+}
+
+/* QUALITY */
+
+.quality{
+    background:#eef8f5;
+    border-radius:13px;
+    padding:24px;
+    margin:35px 0;
+}
+
+.quality h3{
+    color:#087366;
+    margin-top:0;
+}
+
+.checks{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+}
+
+.check{
+    background:white;
+    border:1px solid #cfe2dd;
+    padding:14px;
+    border-radius:8px;
+}
+
+/* CHALLENGE */
+
+.challenge{
+    background:#f7fafb;
+    border:2px solid #dbe5e9;
+    border-radius:14px;
+    padding:24px;
+    margin:35px 0;
+}
+
+.option{
+    display:block;
+    width:100%;
+    padding:13px 15px;
+    margin:9px 0;
+    border:1px solid #ccd9df;
+    background:white;
+    border-radius:8px;
+    text-align:left;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.option:hover{
+    background:#eef8f5;
+    border-color:#087366;
+}
+
+.feedback{
+    display:none;
+    padding:16px;
+    border-radius:8px;
+    margin-top:15px;
+}
+
+.correct{
+    background:#e7f7ee;
+    border-left:5px solid #198754;
+}
+
+.wrong{
+    background:#fff3e0;
+    border-left:5px solid #d99a21;
+}
+
+/* COMPARE */
+
+.compare{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin:25px 0;
+}
+
+.compare-card{
+    padding:22px;
+    border-radius:12px;
+    border:1px solid #d8e3e7;
+}
+
+.digitise{
+    background:#f4f1fb;
+}
+
+.geocode{
+    background:#eef8f5;
+}
+
+/* TAKEAWAY */
+
+.takeaway{
+    border:2px solid #a8d8cc;
+    background:#f8fcfb;
+    border-radius:13px;
+    padding:23px;
+    margin-top:30px;
+}
+
+.takeaway h3{
+    color:#087366;
+    margin-top:0;
+}
+
+/* NEXT */
+
+.next{
+    background:#102b49;
+    color:white;
+    border-radius:12px;
+    padding:22px;
+    margin-top:30px;
+    text-align:center;
+}
+
+.next-label{
+    color:#9de3d8;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+.next-title{
+    font-size:19px;
+    font-weight:bold;
+    margin-top:5px;
+}
+
+@media(max-width:700px){
+
+    .header,
+    .content{
+        padding-left:20px;
+        padding-right:20px;
+    }
+
+    .match-grid,
+    .checks,
+    .compare{
+        grid-template-columns:1fr;
+    }
+
+    .flow{
+        flex-direction:column;
+    }
+
+    .arrow{
+        transform:rotate(90deg);
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+
+<div class="header">
+
+    <div class="week">
+        BITP3483 · WEEK 5 · PREPARE
+    </div>
+
+    <h1>04 📍 LEARN</h1>
+
+    <p>Geocoding — From Address to Location</p>
+
+</div>
+
+
+<div class="content">
+
+<div class="label">
+    LEARN A NEW METHOD
+</div>
+
+<h2>What If You Know the Address, But Not the Coordinates?</h2>
+
+<p>
+    In 03 LEARN, you created a GIS feature by
+    <strong>digitising</strong> it from a reference source.
+</p>
+
+<p>
+    But not every location needs to be manually digitised.
+</p>
+
+
+<!-- CONNECTION -->
+
+<div class="connection">
+
+    <strong>🔗 Connect the Journey</strong>
+
+    <p style="margin-bottom:0;">
+        Imagine that instead of an aerial image,
+        someone gives you a spreadsheet containing
+        <strong>names and addresses</strong>.
+    </p>
+
+</div>
+
+
+<!-- PROBLEM -->
+
+<div class="problem">
+
+<h3>🏥 Your New Task</h3>
+
+<p>
+    You have been asked to map 100 clinics.
+</p>
+
+<p>
+    Your spreadsheet looks like this:
+</p>
+
+<div style="overflow-x:auto;">
+
+<table class="data-table">
+
+<tr>
+    <th>Clinic</th>
+    <th>Address</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+</tr>
+
+<tr>
+    <td>Clinic A</td>
+    <td>Jalan Hang Tuah, Melaka</td>
+    <td>?</td>
+    <td>?</td>
+</tr>
+
+<tr>
+    <td>Clinic B</td>
+    <td>Jalan Bukit Beruang, Melaka</td>
+    <td>?</td>
+    <td>?</td>
+</tr>
+
+<tr>
+    <td>Clinic C</td>
+    <td>Ayer Keroh, Melaka</td>
+    <td>?</td>
+    <td>?</td>
+</tr>
+
+</table>
+
+</div>
+
+<p style="margin-bottom:0;">
+    You know something about <strong>where</strong>
+    each clinic should be —
+    but you do not yet have geographic coordinates.
+</p>
+
+</div>
+
+
+<!-- QUESTION -->
+
+<div class="big-question">
+
+<small>THINK FIRST</small>
+
+<strong>
+    Do you need to find and digitise
+    all 100 clinics manually?
+</strong>
+
+</div>
+
+
+<div class="reveal">
+
+<button onclick="revealAnswer()">
+    Reveal the GIS Approach
+</button>
+
+<div id="answer">
+
+    <strong>Not necessarily.</strong>
+
+    <br><br>
+
+    If you have usable addresses or place descriptions,
+    GIS can attempt to convert them into geographic locations.
+
+    <br><br>
+
+    This process is called
+    <strong>GEOCODING.</strong>
+
+</div>
+
+</div>
+
+
+<!-- DEFINITION -->
+
+<div class="definition">
+
+<div class="definition-title">
+    📍 What Is Geocoding?
+</div>
+
+<p>
+    <strong>Geocoding</strong> is the process of converting
+    an address, place name or other location description
+    into a geographic location that can be displayed on a map.
+</p>
+
+<p style="margin-bottom:0;">
+    In simple terms:
+    <strong>text describing a place → map location.</strong>
+</p>
+
+</div>
+
+
+<!-- FLOW -->
+
+<div class="flow-section">
+
+<h2>🔄 How Does It Work?</h2>
+
+<div class="flow">
+
+    <div class="flow-box">
+        <div class="flow-icon">📝</div>
+        ADDRESS
+    </div>
+
+    <div class="arrow">→</div>
+
+    <div class="flow-box">
+        <div class="flow-icon">🔍</div>
+        GEOCODER
+    </div>
+
+    <div class="arrow">→</div>
+
+    <div class="flow-box">
+        <div class="flow-icon">🌐</div>
+        SEARCH &amp; MATCH
+    </div>
+
+    <div class="arrow">→</div>
+
+    <div class="flow-box">
+        <div class="flow-icon">📍</div>
+        LOCATION
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- EXAMPLE -->
+
+<div class="example">
+
+<div class="example-title">
+    Example: One Address Becomes One Location
+</div>
+
+<div class="example-body">
+
+<p>
+    Suppose the input contains:
+</p>
+
+<div class="address">
+    🏥 Clinic A<br>
+    Jalan Hang Tuah, Melaka
+</div>
+
+<div style="
+    text-align:center;
+    font-size:28px;
+    color:#087366;
+    margin:12px;">
+    ↓
+</div>
+
+<div class="result">
+
+    <strong>GEOCODING</strong>
+
+    <br><br>
+
+    The system searches its reference information
+    for a possible geographic match.
+
+    <br><br>
+
+    📍 A location can then be placed on the map.
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- NOT ALL MATCHES -->
+
+<h2>🤔 But Does Every Address Work Perfectly?</h2>
+
+<p>
+    No. Geocoding is not simply
+    <strong>“address in → perfect point out.”</strong>
+</p>
+
+<p>
+    Different records can produce different results.
+</p>
+
+
+<div class="match-grid">
+
+<div class="match matched">
+
+    <div class="match-icon">✓</div>
+
+    <h3>MATCHED</h3>
+
+    <p>
+        A suitable location was found.
+    </p>
+
+</div>
+
+
+<div class="match review">
+
+    <div class="match-icon">?</div>
+
+    <h3>REVIEW</h3>
+
+    <p>
+        A possible location was found,
+        but it should be checked.
+    </p>
+
+</div>
+
+
+<div class="match unmatched">
+
+    <div class="match-icon">✕</div>
+
+    <h3>UNMATCHED</h3>
+
+    <p>
+        The system could not confidently
+        determine a location.
+    </p>
+
+</div>
+
+</div>
+
+
+<!-- WARNING -->
+
+<div class="warning">
+
+<strong>⚠️ Important: A Match Does Not Automatically Mean Correct</strong>
+
+<p>
+    Imagine the spreadsheet contains:
+</p>
+
+<p style="
+    font-size:18px;
+    text-align:center;
+    font-weight:bold;">
+    “Jalan Melaka”
+</p>
+
+<p>
+    Is that description specific enough?
+</p>
+
+<p style="margin-bottom:0;">
+    A geocoder may return a result,
+    but <strong>you still need to decide whether
+    that result makes sense for your purpose.</strong>
+</p>
+
+</div>
+
+
+<!-- PROBLEMS -->
+
+<h2>🔎 Why Might Geocoding Have Problems?</h2>
+
+<div class="quality">
+
+<div class="checks">
+
+    <div class="check">
+        ✏️ <strong>Spelling</strong><br>
+        The address may contain errors.
+    </div>
+
+    <div class="check">
+        🧩 <strong>Incomplete Address</strong><br>
+        Important location information may be missing.
+    </div>
+
+    <div class="check">
+        📍 <strong>Ambiguous Place</strong><br>
+        Several places may have similar names.
+    </div>
+
+    <div class="check">
+        🕒 <strong>Outdated Information</strong><br>
+        Roads or places may have changed.
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- QUALITY CONNECTION -->
+
+<div class="quality">
+
+<h3>🔗 Remember Week 4: Can You Trust the Data?</h3>
+
+<p>
+    The same quality questions still apply
+    after geocoding.
+</p>
+
+<div class="checks">
+
+    <div class="check">
+        📍 <strong>WHERE?</strong><br>
+        Is the point in the correct location?
+    </div>
+
+    <div class="check">
+        📝 <strong>WHAT?</strong><br>
+        Was the correct clinic matched?
+    </div>
+
+    <div class="check">
+        🧩 <strong>MISSING?</strong><br>
+        Did some addresses remain unmatched?
+    </div>
+
+    <div class="check">
+        🕒 <strong>WHEN?</strong><br>
+        Is the reference information current?
+    </div>
+
+</div>
+
+<p style="margin-bottom:0;margin-top:18px;">
+    <strong>
+        Never assume that every geocoded point is correct
+        simply because it appears on the map.
+    </strong>
+</p>
+
+</div>
+
+
+<!-- MINI CHALLENGE -->
+
+<div class="challenge">
+
+<h2>🧠 Quick Decision</h2>
+
+<p>
+    You receive a spreadsheet containing
+    <strong>500 customer addresses</strong>
+    but no latitude or longitude.
+</p>
+
+<p>
+    What would be the most appropriate first approach?
+</p>
+
+
+<button class="option"
+onclick="checkAnswer(false)">
+A. Manually draw 500 points anywhere near the city
+</button>
+
+
+<button class="option"
+onclick="checkAnswer(true)">
+B. Geocode the addresses and then review the results
+</button>
+
+
+<button class="option"
+onclick="checkAnswer(false)">
+C. Convert every address into a polygon
+</button>
+
+
+<button class="option"
+onclick="checkAnswer(false)">
+D. Delete the addresses because they have no coordinates
+</button>
+
+
+<div id="correctFeedback"
+class="feedback correct">
+
+✓ <strong>Correct.</strong>
+
+<br><br>
+
+The addresses contain location information.
+Geocoding can attempt to convert those descriptions
+into geographic locations.
+
+<br><br>
+
+But remember:
+<strong>review the results.</strong>
+
+</div>
+
+
+<div id="wrongFeedback"
+class="feedback wrong">
+
+Not quite.
+
+<br><br>
+
+The addresses already contain useful clues
+about location.
+
+Think about a method that converts
+<strong>location descriptions into map locations.</strong>
+
+</div>
+
+</div>
+
+
+<!-- DIGITISING VS GEOCODING -->
+
+<h2>🆚 Digitising or Geocoding?</h2>
+
+<p>
+    You now know two different ways
+    GIS features may be created.
+</p>
+
+
+<div class="compare">
+
+<div class="compare-card digitise">
+
+<h3>✏️ DIGITISING</h3>
+
+<p>
+<strong>You have:</strong><br>
+Imagery, map or another visual reference
+</p>
+
+<p>
+<strong>You do:</strong><br>
+Create or trace the feature
+</p>
+
+<p style="margin-bottom:0;">
+<strong>Example:</strong><br>
+Create a parking-area feature from aerial imagery
+</p>
+
+</div>
+
+
+<div class="compare-card geocode">
+
+<h3>📍 GEOCODING</h3>
+
+<p>
+<strong>You have:</strong><br>
+Address or place description
+</p>
+
+<p>
+<strong>You do:</strong><br>
+Find a geographic match
+</p>
+
+<p style="margin-bottom:0;">
+<strong>Example:</strong><br>
+Convert clinic addresses into map locations
+</p>
+
+</div>
+
+</div>
+
+
+<!-- TAKEAWAY -->
+
+<div class="takeaway">
+
+<h3>💡 What You Should Take Away</h3>
+
+<p>
+    Geocoding converts
+    <strong>location descriptions</strong>
+    such as addresses or place names into
+    <strong>geographic locations</strong>.
+</p>
+
+<p>
+    It can be much more efficient than
+    manually creating large numbers of locations.
+</p>
+
+<p style="margin-bottom:0;">
+    But a successful match does not automatically mean
+    a correct location.
+    <strong>Geocoded results must still be checked.</strong>
+</p>
+
+</div>
+
+
+<!-- NEXT -->
+
+<div class="next">
+
+<div class="next-label">
+    NEXT
+</div>
+
+<div class="next-title">
+    05 🧩 CONNECT — Bringing Data Together
+</div>
+
+<p style="margin:7px 0 0;color:#e5f4f2;">
+    What happens when the information we need
+    comes from different sources?
+</p>
+
+</div>
+
+
+</div>
+</div>
+
+
+<script>
+
+function revealAnswer(){
+
+    document.getElementById("answer").style.display="block";
+
+}
+
+
+function checkAnswer(correct){
+
+    var good =
+        document.getElementById("correctFeedback");
+
+    var bad =
+        document.getElementById("wrongFeedback");
+
+    good.style.display="none";
+    bad.style.display="none";
+
+    if(correct){
+        good.style.display="block";
+    }else{
+        bad.style.display="block";
+    }
+
+}
+
+</script>
+
+</body>
+</html>
