@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Week 5 - 05 CONNECT | Bringing Data Together</title>
+
+<style>
+
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f4f7f9;
+    color:#24323b;
+    line-height:1.65;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    background:#ffffff;
+    min-height:100vh;
+}
+
+.header{
+    background:linear-gradient(135deg,#102b49,#145c72,#087366);
+    color:white;
+    padding:36px 40px;
+}
+
+.week{
+    font-size:13px;
+    font-weight:bold;
+    letter-spacing:1.5px;
+    color:#c8f4e9;
+}
+
+.header h1{
+    margin:6px 0 0;
+    font-size:34px;
+}
+
+.header p{
+    margin:5px 0 0;
+    color:#e5f4f2;
+    font-size:17px;
+}
+
+.content{
+    padding:35px 40px 50px;
+}
+
+.label{
+    display:inline-block;
+    background:#087366;
+    color:white;
+    padding:6px 13px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+h2{
+    color:#102b49;
+    margin-top:12px;
+}
+
+h3{
+    color:#102b49;
+}
+
+/* CONNECTION */
+
+.connection{
+    background:#f4f1fb;
+    border-left:5px solid #7254a3;
+    padding:20px 22px;
+    border-radius:9px;
+    margin:25px 0;
+}
+
+/* SCENARIO */
+
+.scenario{
+    background:#eef8f5;
+    border:2px solid #a8d8cc;
+    border-radius:14px;
+    padding:24px;
+    margin:28px 0;
+}
+
+.scenario h3{
+    margin-top:0;
+    color:#087366;
+}
+
+/* BIG QUESTION */
+
+.big-question{
+    background:#102b49;
+    color:white;
+    border-radius:14px;
+    padding:25px;
+    text-align:center;
+    margin:30px 0;
+}
+
+.big-question small{
+    display:block;
+    color:#9de3d8;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+.big-question strong{
+    display:block;
+    font-size:23px;
+    margin-top:7px;
+}
+
+/* TWO SOURCES */
+
+.sources{
+    display:grid;
+    grid-template-columns:1fr 70px 1fr;
+    gap:15px;
+    align-items:center;
+    margin:30px 0;
+}
+
+.source{
+    border:2px solid #d8e3e7;
+    border-radius:13px;
+    padding:22px;
+    background:#f7fafb;
+}
+
+.source-icon{
+    text-align:center;
+    font-size:40px;
+}
+
+.plus{
+    text-align:center;
+    font-size:35px;
+    color:#087366;
+    font-weight:bold;
+}
+
+/* TABLES */
+
+.table-wrap{
+    overflow-x:auto;
+    margin:15px 0;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:420px;
+}
+
+th{
+    background:#102b49;
+    color:white;
+    padding:10px;
+    text-align:left;
+}
+
+td{
+    border:1px solid #d7e0e5;
+    padding:10px;
+}
+
+tr:nth-child(even){
+    background:#f7fafb;
+}
+
+.key{
+    background:#fff1bd;
+    font-weight:bold;
+}
+
+/* REVEAL */
+
+.reveal{
+    text-align:center;
+    margin:25px 0;
+}
+
+.reveal button{
+    border:none;
+    background:#087366;
+    color:white;
+    padding:13px 22px;
+    border-radius:24px;
+    font-weight:bold;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.reveal button:hover{
+    background:#065c52;
+}
+
+#revealAnswer{
+    display:none;
+    margin-top:18px;
+    background:#e7f7ee;
+    border-left:5px solid #198754;
+    border-radius:8px;
+    padding:18px;
+    text-align:left;
+}
+
+/* CONCEPT */
+
+.concept{
+    background:linear-gradient(135deg,#e9f7f3,#f8fcfb);
+    border:2px solid #a8d8cc;
+    border-radius:13px;
+    padding:23px;
+    margin:30px 0;
+}
+
+.concept-title{
+    color:#087366;
+    font-size:21px;
+    font-weight:bold;
+}
+
+/* FLOW */
+
+.flow{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:25px 0;
+}
+
+.flow-box{
+    min-width:150px;
+    background:#f7fafb;
+    border:2px solid #d8e3e7;
+    border-radius:10px;
+    padding:17px;
+    text-align:center;
+    font-weight:bold;
+}
+
+.flow-icon{
+    font-size:34px;
+}
+
+.arrow{
+    color:#087366;
+    font-size:25px;
+    font-weight:bold;
+}
+
+/* RESULT */
+
+.result{
+    border:2px solid #a8d8cc;
+    border-radius:13px;
+    overflow:hidden;
+    margin:30px 0;
+}
+
+.result-title{
+    background:#087366;
+    color:white;
+    padding:14px 20px;
+    font-weight:bold;
+}
+
+.result-body{
+    padding:22px;
+}
+
+/* KEY */
+
+.key-box{
+    background:#fff7e6;
+    border-left:5px solid #e0a126;
+    border-radius:9px;
+    padding:22px;
+    margin:30px 0;
+}
+
+.key-visual{
+    text-align:center;
+    margin:18px 0;
+    font-size:18px;
+    font-weight:bold;
+    color:#102b49;
+}
+
+.id{
+    display:inline-block;
+    background:#fff1bd;
+    padding:7px 13px;
+    border-radius:6px;
+    margin:4px;
+}
+
+.link-arrow{
+    color:#087366;
+    padding:0 8px;
+}
+
+/* EXAMPLES */
+
+.examples{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+    margin:25px 0;
+}
+
+.example{
+    background:#f7fafb;
+    border:1px solid #d8e3e7;
+    border-radius:10px;
+    padding:18px;
+}
+
+.example strong{
+    color:#087366;
+}
+
+/* CHALLENGE */
+
+.challenge{
+    background:#f7fafb;
+    border:2px solid #dbe5e9;
+    border-radius:14px;
+    padding:24px;
+    margin:35px 0;
+}
+
+.option{
+    display:block;
+    width:100%;
+    margin:9px 0;
+    padding:13px 15px;
+    background:white;
+    border:1px solid #ccd9df;
+    border-radius:8px;
+    text-align:left;
+    font-size:15px;
+    cursor:pointer;
+}
+
+.option:hover{
+    background:#eef8f5;
+    border-color:#087366;
+}
+
+.feedback{
+    display:none;
+    padding:16px;
+    margin-top:15px;
+    border-radius:8px;
+}
+
+.correct{
+    background:#e7f7ee;
+    border-left:5px solid #198754;
+}
+
+.wrong{
+    background:#fff3e0;
+    border-left:5px solid #d99a21;
+}
+
+/* QUALITY */
+
+.quality{
+    background:#eef8f5;
+    padding:24px;
+    border-radius:13px;
+    margin:35px 0;
+}
+
+.quality h3{
+    color:#087366;
+    margin-top:0;
+}
+
+.quality-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+}
+
+.quality-item{
+    background:white;
+    border:1px solid #cfe2dd;
+    border-radius:8px;
+    padding:14px;
+}
+
+/* TAKEAWAY */
+
+.takeaway{
+    border:2px solid #a8d8cc;
+    background:#f8fcfb;
+    border-radius:13px;
+    padding:23px;
+    margin-top:30px;
+}
+
+.takeaway h3{
+    color:#087366;
+    margin-top:0;
+}
+
+/* NEXT */
+
+.next{
+    background:#102b49;
+    color:white;
+    border-radius:12px;
+    padding:22px;
+    margin-top:30px;
+    text-align:center;
+}
+
+.next-label{
+    color:#9de3d8;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+.next-title{
+    font-size:19px;
+    font-weight:bold;
+    margin-top:5px;
+}
+
+@media(max-width:700px){
+
+    .header,
+    .content{
+        padding-left:20px;
+        padding-right:20px;
+    }
+
+    .sources{
+        grid-template-columns:1fr;
+    }
+
+    .plus{
+        transform:rotate(90deg);
+    }
+
+    .examples,
+    .quality-grid{
+        grid-template-columns:1fr;
+    }
+
+    .flow{
+        flex-direction:column;
+    }
+
+    .arrow{
+        transform:rotate(90deg);
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+
+<div class="header">
+
+<div class="week">
+BITP3483 · WEEK 5 · PREPARE
+</div>
+
+<h1>05 🧩 CONNECT</h1>
+
+<p>Bringing Data Together</p>
+
+</div>
+
+
+<div class="content">
+
+<div class="label">
+CONNECT THE PIECES
+</div>
+
+<h2>What If the Information You Need Is in Different Places?</h2>
+
+<p>
+So far, you have explored ways of creating geographic data.
+</p>
+
+<p>
+But in a real GIS project, you rarely receive
+everything you need in one perfect dataset.
+</p>
+
+
+<!-- CONNECTION -->
+
+<div class="connection">
+
+<strong>🔗 Where Are We Now?</strong>
+
+<p>
+In <strong>03 LEARN</strong>, you created features through
+<strong>digitising</strong>.
+</p>
+
+<p>
+In <strong>04 LEARN</strong>, you learned how addresses
+can become locations through <strong>geocoding</strong>.
+</p>
+
+<p style="margin-bottom:0;">
+Now another problem appears:
+<strong>the information you need is spread across different datasets.</strong>
+</p>
+
+</div>
+
+
+<!-- SCENARIO -->
+
+<div class="scenario">
+
+<h3>🏫 The Campus Facilities Question</h3>
+
+<p>
+Your GIS already contains a layer showing
+university buildings.
+</p>
+
+<p>
+The map can tell you:
+<strong>Where are the buildings?</strong>
+</p>
+
+<p>
+Then someone gives you a spreadsheet containing
+the number of students and computers in each building.
+</p>
+
+<p style="margin-bottom:0;">
+Now you want the map to answer:
+<strong>Where are the buildings, and what facilities does each one have?</strong>
+</p>
+
+</div>
+
+
+<!-- BIG QUESTION -->
+
+<div class="big-question">
+
+<small>THE NEW PROBLEM</small>
+
+<strong>
+How can information from two different sources
+work together?
+</strong>
+
+</div>
+
+
+<!-- TWO SOURCES -->
+
+<div class="sources">
+
+<div class="source">
+
+<div class="source-icon">🗺️</div>
+
+<h3 style="text-align:center;">
+GIS Building Layer
+</h3>
+
+<div class="table-wrap">
+
+<table>
+
+<tr>
+<th>Building_ID</th>
+<th>Building</th>
+</tr>
+
+<tr>
+<td class="key">B01</td>
+<td>Library</td>
+</tr>
+
+<tr>
+<td class="key">B02</td>
+<td>Faculty A</td>
+</tr>
+
+<tr>
+<td class="key">B03</td>
+<td>Faculty B</td>
+</tr>
+
+</table>
+
+</div>
+
+<p style="text-align:center;margin-bottom:0;">
+<strong>Has geometry</strong>
+</p>
+
+</div>
+
+
+<div class="plus">
++
+</div>
+
+
+<div class="source">
+
+<div class="source-icon">📊</div>
+
+<h3 style="text-align:center;">
+Facilities Table
+</h3>
+
+<div class="table-wrap">
+
+<table>
+
+<tr>
+<th>Building_ID</th>
+<th>Students</th>
+<th>Computers</th>
+</tr>
+
+<tr>
+<td class="key">B01</td>
+<td>450</td>
+<td>120</td>
+</tr>
+
+<tr>
+<td class="key">B02</td>
+<td>820</td>
+<td>85</td>
+</tr>
+
+<tr>
+<td class="key">B03</td>
+<td>610</td>
+<td>70</td>
+</tr>
+
+</table>
+
+</div>
+
+<p style="text-align:center;margin-bottom:0;">
+<strong>Has useful information</strong>
+</p>
+
+</div>
+
+</div>
+
+
+<!-- OBSERVE -->
+
+<div class="reveal">
+
+<p>
+<strong>Look carefully at both datasets.</strong>
+</p>
+
+<p>
+Can you see something they have in common?
+</p>
+
+<button onclick="showConnection()">
+Reveal the Connection
+</button>
+
+
+<div id="revealAnswer">
+
+<strong>Yes — Building_ID.</strong>
+
+<br><br>
+
+Both datasets contain the same identifier:
+
+<br><br>
+
+<strong>B01 · B02 · B03</strong>
+
+<br><br>
+
+That shared value gives GIS a way to determine
+which information belongs to which building.
+
+</div>
+
+</div>
+
+
+<!-- CONCEPT -->
+
+<div class="concept">
+
+<div class="concept-title">
+🧩 Connecting Data
+</div>
+
+<p>
+GIS often needs to bring information from
+different sources together.
+</p>
+
+<p>
+One way this can happen is when two datasets contain
+a <strong>common field or identifier</strong>.
+</p>
+
+<p style="margin-bottom:0;">
+That shared information helps GIS connect the correct
+record from one dataset with the corresponding
+feature or record in another.
+</p>
+
+</div>
+
+
+<!-- FLOW -->
+
+<h2>🔄 See the Connection</h2>
+
+<div class="flow">
+
+<div class="flow-box">
+<div class="flow-icon">🗺️</div>
+BUILDING<br>LAYER
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box">
+<div class="flow-icon">🔑</div>
+COMMON<br>IDENTIFIER
+</div>
+
+<div class="arrow">←</div>
+
+<div class="flow-box">
+<div class="flow-icon">📊</div>
+FACILITIES<br>TABLE
+</div>
+
+</div>
+
+
+<div class="key-box">
+
+<strong>🔑 The Key Is the Common Identifier</strong>
+
+<div class="key-visual">
+
+<span class="id">Building_ID = B01</span>
+
+<span class="link-arrow">↔</span>
+
+<span class="id">Building_ID = B01</span>
+
+</div>
+
+<p style="margin-bottom:0;">
+The common identifier helps us recognise that
+the information in both datasets refers to the
+<strong>same real-world building.</strong>
+</p>
+
+</div>
+
+
+<!-- RESULT -->
+
+<div class="result">
+
+<div class="result-title">
+What Can We Have After Bringing the Information Together?
+</div>
+
+<div class="result-body">
+
+<div class="table-wrap">
+
+<table>
+
+<tr>
+<th>Building_ID</th>
+<th>Building</th>
+<th>Students</th>
+<th>Computers</th>
+</tr>
+
+<tr>
+<td>B01</td>
+<td>Library</td>
+<td>450</td>
+<td>120</td>
+</tr>
+
+<tr>
+<td>B02</td>
+<td>Faculty A</td>
+<td>820</td>
+<td>85</td>
+</tr>
+
+<tr>
+<td>B03</td>
+<td>Faculty B</td>
+<td>610</td>
+<td>70</td>
+</tr>
+
+</table>
+
+</div>
+
+<p>
+The building geometry has not changed.
+</p>
+
+<p style="margin-bottom:0;">
+But the GIS now has more information that can support
+<strong>mapping, querying and analysis.</strong>
+</p>
+
+</div>
+
+</div>
+
+
+<!-- OTHER SOURCES -->
+
+<h2>🌐 GIS Data Can Come From Many Sources</h2>
+
+<p>
+The same idea applies beyond our campus example.
+A GIS project may need to work with information from:
+</p>
+
+
+<div class="examples">
+
+<div class="example">
+<strong>📊 Spreadsheet</strong><br>
+CSV or Excel containing names, IDs,
+coordinates or measurements.
+</div>
+
+<div class="example">
+<strong>🗺️ Existing GIS Layer</strong><br>
+Roads, buildings, boundaries or other
+existing geographic features.
+</div>
+
+<div class="example">
+<strong>🌐 Open Data</strong><br>
+Data obtained from agencies,
+portals or other providers.
+</div>
+
+<div class="example">
+<strong>📍 Field Data</strong><br>
+Locations and observations collected
+directly from the real world.
+</div>
+
+</div>
+
+
+<!-- IMPORTANT LIMIT -->
+
+<div class="key-box">
+
+<strong>⚠️ Do Not Rush to Combine Everything</strong>
+
+<p>
+Before bringing datasets together, ask:
+</p>
+
+<p>
+<strong>Do they really refer to the same things?</strong>
+</p>
+
+<p style="margin-bottom:0;">
+Similar-looking data do not automatically belong together.
+You need a meaningful connection between them.
+</p>
+
+</div>
+
+
+<!-- CHALLENGE -->
+
+<div class="challenge">
+
+<h2>🧠 Find the Connection</h2>
+
+<p>
+You have:
+</p>
+
+<p>
+<strong>Dataset A:</strong> A GIS layer of campus buildings
+containing <strong>Building_ID</strong>.
+</p>
+
+<p>
+<strong>Dataset B:</strong> An energy-use spreadsheet containing
+<strong>Building_ID</strong> and monthly electricity consumption.
+</p>
+
+<p>
+What is the most useful field for connecting the datasets?
+</p>
+
+
+<button class="option"
+onclick="checkAnswer(false)">
+A. Electricity consumption
+</button>
+
+<button class="option"
+onclick="checkAnswer(true)">
+B. Building_ID
+</button>
+
+<button class="option"
+onclick="checkAnswer(false)">
+C. The spreadsheet filename
+</button>
+
+<button class="option"
+onclick="checkAnswer(false)">
+D. The colour used to display each building
+</button>
+
+
+<div id="correctFeedback"
+class="feedback correct">
+
+✓ <strong>Correct.</strong>
+
+<br><br>
+
+<strong>Building_ID</strong> appears in both datasets
+and identifies the corresponding building.
+
+</div>
+
+
+<div id="wrongFeedback"
+class="feedback wrong">
+
+Not quite.
+
+<br><br>
+
+Look for a field that appears in both datasets
+and identifies the <strong>same real-world feature.</strong>
+
+</div>
+
+</div>
+
+
+<!-- QUALITY CONNECTION -->
+
+<div class="quality">
+
+<h3>🔗 But What If the Data Do Not Match?</h3>
+
+<p>
+Suppose one dataset contains:
+</p>
+
+<p style="text-align:center;">
+<strong>B01 · B02 · B03</strong>
+</p>
+
+<p>
+but the second contains:
+</p>
+
+<p style="text-align:center;">
+<strong>B01 · B2 · B03</strong>
+</p>
+
+<p>
+Will everything connect correctly?
+</p>
+
+
+<div class="quality-grid">
+
+<div class="quality-item">
+🔑 <strong>MATCH?</strong><br>
+Do the identifiers correspond?
+</div>
+
+<div class="quality-item">
+🧩 <strong>MISSING?</strong><br>
+Are some records absent?
+</div>
+
+<div class="quality-item">
+🔄 <strong>CONSISTENT?</strong><br>
+Are values recorded in the same way?
+</div>
+
+<div class="quality-item">
+🕒 <strong>CURRENT?</strong><br>
+Do the datasets represent compatible time periods?
+</div>
+
+</div>
+
+<p style="margin-bottom:0;margin-top:18px;">
+This is why data often need to be
+<strong>prepared before they are ready for GIS.</strong>
+</p>
+
+</div>
+
+
+<!-- TAKEAWAY -->
+
+<div class="takeaway">
+
+<h3>💡 What You Should Take Away</h3>
+
+<p>
+GIS projects often use information from
+<strong>multiple sources.</strong>
+</p>
+
+<p>
+A spatial layer may tell us
+<strong>WHERE</strong> something is,
+while another table provides additional information
+about <strong>WHAT</strong> it is like.
+</p>
+
+<p>
+A meaningful common field or identifier can help
+connect those pieces of information.
+</p>
+
+<p style="margin-bottom:0;">
+But before using the combined data,
+we need to check that the values are
+<strong>complete, consistent and suitable.</strong>
+</p>
+
+</div>
+
+
+<!-- NEXT -->
+
+<div class="next">
+
+<div class="next-label">
+NEXT
+</div>
+
+<div class="next-title">
+📘 READING 03 — Preparing Data for GIS
+</div>
+
+<p style="margin:7px 0 0;color:#e5f4f2;">
+Before GIS can use data confidently,
+sometimes the data need a little cleaning.
+</p>
+
+</div>
+
+</div>
+</div>
+
+
+<script>
+
+function showConnection(){
+
+    document.getElementById("revealAnswer").style.display="block";
+
+}
+
+function checkAnswer(correct){
+
+    var good =
+        document.getElementById("correctFeedback");
+
+    var bad =
+        document.getElementById("wrongFeedback");
+
+    good.style.display="none";
+    bad.style.display="none";
+
+    if(correct){
+        good.style.display="block";
+    }else{
+        bad.style.display="block";
+    }
+
+}
+
+</script>
+
+</body>
+</html>
