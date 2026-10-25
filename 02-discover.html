@@ -14,10 +14,11 @@
 
 body {
     margin: 0;
+    padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     background: #f4f7f9;
     color: #24323b;
-    line-height: 1.6;
+    line-height: 1.65;
 }
 
 .container {
@@ -48,12 +49,12 @@ body {
 }
 
 .header h1 {
-    margin: 6px 0 0;
+    margin: 6px 0 0 0;
     font-size: 34px;
 }
 
 .header p {
-    margin: 5px 0 0;
+    margin: 5px 0 0 0;
     font-size: 17px;
     color: #e5f4f2;
 }
@@ -91,14 +92,14 @@ h3 {
     max-width: 850px;
 }
 
-/* QUESTION */
+/* BIG QUESTION */
 
 .big-question {
-    margin: 25px 0;
+    margin: 25px 0 30px;
     background: #102b49;
     color: white;
-    border-radius: 14px;
     padding: 24px;
+    border-radius: 14px;
     text-align: center;
 }
 
@@ -111,71 +112,110 @@ h3 {
 }
 
 .big-question strong {
+    display: block;
     font-size: 24px;
 }
 
 /* SCENARIO */
 
 .scenario {
-    margin-top: 28px;
-    padding: 22px;
     background: #f2f8f7;
     border-left: 5px solid #087366;
+    padding: 22px;
     border-radius: 10px;
+    margin: 25px 0;
 }
 
 .scenario h3 {
     margin-top: 0;
-}
-
-/* REAL WORLD */
-
-.real-world {
-    text-align: center;
-    margin: 35px 0 20px;
-}
-
-.real-icon {
-    font-size: 55px;
-}
-
-.real-world h3 {
-    font-size: 22px;
-    margin: 5px 0;
-}
-
-.arrow-down {
-    font-size: 35px;
     color: #087366;
+}
+
+/* CAMPUS MAP */
+
+.campus {
+    margin: 30px 0;
+    padding: 25px;
+    background: #f7fafb;
+    border: 2px solid #dbe5e9;
+    border-radius: 14px;
+}
+
+.campus-title {
     text-align: center;
-    margin: 12px 0;
+    font-weight: bold;
+    color: #102b49;
+    margin-bottom: 18px;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.feature {
+    background: white;
+    border: 1px solid #d8e3e7;
+    border-radius: 10px;
+    padding: 16px 8px;
+    text-align: center;
+}
+
+.feature-icon {
+    font-size: 34px;
+}
+
+.feature-name {
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* PROBLEM */
+
+.problem {
+    background: #fff6df;
+    border-left: 5px solid #d39a18;
+    padding: 18px 20px;
+    border-radius: 9px;
+    margin: 25px 0;
+}
+
+.problem strong {
+    color: #825900;
 }
 
 /* ROUTES */
+
+.routes-title {
+    text-align: center;
+    margin-top: 35px;
+}
 
 .routes {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
+    margin-top: 20px;
 }
 
 .route {
+    background: white;
     border: 2px solid #d8e3e7;
     border-radius: 13px;
     padding: 20px;
     cursor: pointer;
     transition: 0.2s;
-    background: white;
 }
 
 .route:hover {
     border-color: #087366;
-    transform: translateY(-2px);
     background: #f5fbf9;
+    transform: translateY(-2px);
 }
 
 .route-icon {
-    font-size: 34px;
+    font-size: 35px;
 }
 
 .route h3 {
@@ -187,148 +227,161 @@ h3 {
     color: #536773;
 }
 
-.click-text {
+.tap {
     display: inline-block;
     margin-top: 12px;
-    font-size: 13px;
-    font-weight: bold;
     color: #087366;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: .5px;
 }
 
-/* FEEDBACK */
+/* DISCOVERY FEEDBACK */
 
-.feedback {
+.route-feedback {
     display: none;
-    margin-top: 12px;
+    margin-top: 14px;
     padding: 14px;
     background: #e7f7ee;
-    color: #146c43;
-    border-radius: 8px;
     border-left: 4px solid #198754;
+    border-radius: 8px;
+    color: #146c43;
 }
 
-/* TRANSFORMATION */
+/* REVEAL */
 
-.transform {
-    margin-top: 35px;
-    padding: 25px;
-    border: 2px solid #dbe5e9;
-    border-radius: 14px;
-    background: #fafcfd;
+.reveal {
+    display: none;
+    margin-top: 28px;
+    background: #102b49;
+    color: white;
+    padding: 24px;
+    border-radius: 13px;
 }
 
-.flow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-top: 20px;
+.reveal h3 {
+    color: #9de3d8;
+    margin-top: 0;
 }
 
-.flow-box {
-    padding: 15px 17px;
-    background: white;
-    border: 2px solid #cddce2;
-    border-radius: 10px;
+.reveal-flow {
     text-align: center;
-    min-width: 130px;
+    font-size: 18px;
     font-weight: bold;
+    line-height: 2;
 }
 
-.flow-arrow {
-    font-size: 25px;
-    color: #087366;
+/* BUTTON */
+
+.reveal-button {
+    display: block;
+    margin: 28px auto 0;
+    padding: 13px 22px;
+    background: #087366;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
     font-weight: bold;
+    cursor: pointer;
 }
 
-/* THINK */
+.reveal-button:hover {
+    background: #075d53;
+}
 
-.think {
+/* MINI CHALLENGE */
+
+.challenge {
     margin-top: 35px;
+    border-top: 1px solid #dce5e9;
+    padding-top: 28px;
 }
 
-.choice {
+.challenge-card {
+    background: #f7fafb;
+    border: 1px solid #d8e3e7;
+    border-radius: 11px;
+    padding: 20px;
+}
+
+.option {
     display: block;
     width: 100%;
-    padding: 13px 15px;
     margin: 9px 0;
+    padding: 13px 15px;
     text-align: left;
     background: white;
-    border: 1px solid #cdd9df;
-    border-radius: 9px;
+    border: 1px solid #ccd9df;
+    border-radius: 8px;
     font-size: 15px;
     cursor: pointer;
-    transition: 0.2s;
 }
 
-.choice:hover {
-    background: #eef8f5;
+.option:hover {
     border-color: #087366;
+    background: #eef8f5;
 }
 
-.answer-feedback {
+.answer {
     display: none;
+    margin-top: 14px;
     padding: 15px;
-    margin-top: 12px;
-    border-radius: 9px;
+    border-radius: 8px;
 }
 
-.good {
+.correct {
     background: #e7f7ee;
     color: #146c43;
     border-left: 5px solid #198754;
 }
 
-.notyet {
+.try-again {
     background: #fff3e0;
     color: #805600;
     border-left: 5px solid #d99a21;
 }
 
-/* KEY DISCOVERY */
+/* CONNECTION */
 
-.discovery {
+.connection {
     margin-top: 35px;
-    background: linear-gradient(135deg, #e9f7f3, #f6fbfa);
+    background: linear-gradient(135deg,#e9f7f3,#f8fcfb);
     border: 2px solid #a8d8cc;
     border-radius: 14px;
     padding: 24px;
 }
 
-.discovery h3 {
+.connection h3 {
     color: #087366;
     margin-top: 0;
 }
 
-.discovery-list {
-    margin: 15px 0 0;
-    padding-left: 22px;
-}
+/* THINK */
 
-/* WARNING */
-
-.warning {
-    margin-top: 25px;
-    padding: 18px;
-    background: #fff7e6;
-    border-left: 5px solid #e0a126;
-    border-radius: 8px;
+.think {
+    margin-top: 22px;
+    background: #f4f1fb;
+    border-left: 5px solid #7254a3;
+    border-radius: 9px;
+    padding: 19px 21px;
 }
 
 /* NEXT */
 
 .next {
     margin-top: 30px;
-    padding: 20px;
+    padding: 22px;
     background: #102b49;
     color: white;
     border-radius: 12px;
     text-align: center;
 }
 
-.next strong {
+.next-label {
     color: #9de3d8;
+    font-weight: bold;
+    font-size: 17px;
 }
 
 /* MOBILE */
@@ -341,21 +394,15 @@ h3 {
         padding-right: 20px;
     }
 
+    .features,
     .routes {
         grid-template-columns: 1fr;
-    }
-
-    .flow {
-        flex-direction: column;
-    }
-
-    .flow-arrow {
-        transform: rotate(90deg);
     }
 }
 
 </style>
 </head>
+
 
 <body>
 
@@ -371,7 +418,9 @@ h3 {
 
         <h1>02 🔎 DISCOVER</h1>
 
-        <p>How Does the Real World Become GIS Data?</p>
+        <p>
+            How Does the Real World Become GIS Data?
+        </p>
 
     </div>
 
@@ -382,16 +431,16 @@ h3 {
             EXPLORE BEFORE YOU LEARN
         </div>
 
-        <h2>Look around you.</h2>
+        <h2>Look around your campus.</h2>
 
         <p class="intro">
-            Buildings, roads, cafés, trees, parking areas and bus stops
-            exist in the <strong>real world</strong>.
+            You can see buildings, roads, parking areas, cafés,
+            trees and many other objects around you.
         </p>
 
         <p class="intro">
-            But GIS cannot analyse them until information about those
-            objects has been transformed into <strong>digital spatial data</strong>.
+            They exist in the <strong>real world</strong>.
+            But GIS cannot automatically know about them.
         </p>
 
 
@@ -402,8 +451,8 @@ h3 {
             <small>DISCOVERY QUESTION</small>
 
             <strong>
-                How does something in the real world become something
-                we can see and analyse in GIS?
+                How does something in the real world
+                become GIS data?
             </strong>
 
         </div>
@@ -413,10 +462,10 @@ h3 {
 
         <div class="scenario">
 
-            <h3>☕ Imagine this...</h3>
+            <h3>☕ A New Café Has Opened</h3>
 
             <p>
-                A new café has opened on your university campus.
+                Imagine that a new café has opened on your university campus.
             </p>
 
             <p>
@@ -424,139 +473,212 @@ h3 {
                 You can see the building.
             </p>
 
-            <p>
-                But when you open the university GIS map...
-            </p>
-
-            <p>
-                <strong>the café is not there.</strong>
+            <p style="margin-bottom:0;">
+                But when you open the university GIS map,
+                <strong>the café does not appear.</strong>
             </p>
 
         </div>
 
 
-        <!-- REAL WORLD -->
+        <!-- EXISTING GIS -->
 
-        <div class="real-world">
+        <div class="campus">
 
-            <div class="real-icon">☕</div>
+            <div class="campus-title">
+                🗺️ THE CURRENT CAMPUS GIS
+            </div>
 
-            <h3>New Campus Café</h3>
+            <div class="features">
 
-            <p>It exists in the real world.</p>
+                <div class="feature">
+                    <div class="feature-icon">🏢</div>
+                    <div class="feature-name">Buildings</div>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🛣️</div>
+                    <div class="feature-name">Roads</div>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🅿️</div>
+                    <div class="feature-name">Parking</div>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🌳</div>
+                    <div class="feature-name">Green Areas</div>
+                </div>
+
+            </div>
 
         </div>
 
-        <div class="arrow-down">↓</div>
 
-        <h2 style="text-align:center;">
-            How could we put it into GIS?
-        </h2>
+        <div class="problem">
+
+            <strong>THE PROBLEM:</strong>
+
+            The café exists in the real world,
+            but no digital GIS feature represents it yet.
+
+            <br><br>
+
+            So how could we get it into GIS?
+
+        </div>
 
 
         <!-- FOUR ROUTES -->
 
+        <h2 class="routes-title">
+            Explore four possible routes
+        </h2>
+
+        <p style="text-align:center;">
+            Click each card to discover what could happen.
+        </p>
+
+
         <div class="routes">
 
-            <!-- ROUTE 1 -->
+            <!-- 1 -->
 
-            <div class="route" onclick="toggleFeedback('f1')">
+            <div class="route" onclick="toggleRoute('route1')">
 
                 <div class="route-icon">📍</div>
 
-                <h3>Go to the Location</h3>
+                <h3>Go There</h3>
 
                 <p>
-                    Visit the café and record its location using
-                    GPS/GNSS or a field data collection application.
+                    Visit the café and record its location
+                    using a GPS/GNSS device or mobile application.
                 </p>
 
-                <span class="click-text">
+                <span class="tap">
                     CLICK TO DISCOVER
                 </span>
 
-                <div id="f1" class="feedback" style="display:none;">
-                    <strong>Field Collection</strong><br>
-                    The location is captured directly from the real world
-                    and can become a GIS feature.
+                <div id="route1"
+                     class="route-feedback"
+                     style="display:none;">
+
+                    <strong>FIELD COLLECTION</strong>
+
+                    <br><br>
+
+                    We can collect information directly from
+                    the real world and record its geographic location.
+
                 </div>
 
             </div>
 
 
-            <!-- ROUTE 2 -->
+            <!-- 2 -->
 
-            <div class="route" onclick="toggleFeedback('f2')">
+            <div class="route" onclick="toggleRoute('route2')">
 
                 <div class="route-icon">🛰️</div>
 
-                <h3>Look at Imagery</h3>
+                <h3>Look From Above</h3>
 
                 <p>
-                    Find the café building on recent aerial or satellite
+                    Find the café on recent aerial or satellite
                     imagery and trace its location or shape.
                 </p>
 
-                <span class="click-text">
+                <span class="tap">
                     CLICK TO DISCOVER
                 </span>
 
-                <div id="f2" class="feedback" style="display:none;">
-                    <strong>Digitising</strong><br>
-                    A visible real-world feature can be represented
-                    by creating a point, line or polygon in GIS.
+                <div id="route2"
+                     class="route-feedback"
+                     style="display:none;">
+
+                    <strong>DIGITISING</strong>
+
+                    <br><br>
+
+                    A feature visible on imagery or a map can be
+                    traced and represented digitally in GIS.
+
+                    <br><br>
+
+                    You will explore this method more closely
+                    later in Week 5.
+
                 </div>
 
             </div>
 
 
-            <!-- ROUTE 3 -->
+            <!-- 3 -->
 
-            <div class="route" onclick="toggleFeedback('f3')">
+            <div class="route" onclick="toggleRoute('route3')">
 
                 <div class="route-icon">🏠</div>
 
-                <h3>Use Its Address</h3>
+                <h3>Use an Address</h3>
 
                 <p>
-                    If the café has an address or recognised place name,
-                    use that information to locate it.
+                    Perhaps you know the café's address or
+                    recognised place name but not its coordinates.
                 </p>
 
-                <span class="click-text">
+                <span class="tap">
                     CLICK TO DISCOVER
                 </span>
 
-                <div id="f3" class="feedback" style="display:none;">
-                    <strong>Geocoding</strong><br>
-                    A textual location such as an address or place name
-                    can be converted into a geographic location.
+                <div id="route3"
+                     class="route-feedback"
+                     style="display:none;">
+
+                    <strong>GEOCODING</strong>
+
+                    <br><br>
+
+                    GIS can use a location description such as
+                    an address to help determine a geographic location.
+
+                    <br><br>
+
+                    You will investigate geocoding later in Week 5.
+
                 </div>
 
             </div>
 
 
-            <!-- ROUTE 4 -->
+            <!-- 4 -->
 
-            <div class="route" onclick="toggleFeedback('f4')">
+            <div class="route" onclick="toggleRoute('route4')">
 
                 <div class="route-icon">📊</div>
 
                 <h3>Use Existing Information</h3>
 
                 <p>
-                    Perhaps the university already has a spreadsheet
+                    The university may already have a spreadsheet
                     containing the café name and coordinates.
                 </p>
 
-                <span class="click-text">
+                <span class="tap">
                     CLICK TO DISCOVER
                 </span>
 
-                <div id="f4" class="feedback" style="display:none;">
-                    <strong>Import & Integration</strong><br>
-                    Existing tables, coordinates or datasets can be
-                    prepared and brought into GIS.
+                <div id="route4"
+                     class="route-feedback"
+                     style="display:none;">
+
+                    <strong>IMPORT &amp; INTEGRATE</strong>
+
+                    <br><br>
+
+                    Existing tables, coordinates and datasets
+                    can be prepared and brought into GIS.
+
                 </div>
 
             </div>
@@ -564,43 +686,139 @@ h3 {
         </div>
 
 
-        <!-- TRANSFORMATION -->
+        <!-- REVEAL -->
 
-        <div class="transform">
+        <button class="reveal-button"
+                onclick="showPattern()">
+            👀 What do these four routes have in common?
+        </button>
 
-            <h3>🔄 What is happening?</h3>
+
+        <div id="pattern"
+             class="reveal"
+             style="display:none;">
+
+            <h3>💡 Look at the pattern</h3>
 
             <p>
-                Although the methods are different, they all perform
-                the same important transformation:
+                The methods are different, but something similar
+                is happening in every case.
             </p>
 
-            <div class="flow">
+            <div class="reveal-flow">
 
-                <div class="flow-box">
-                    🌍<br>
-                    REAL WORLD
+                🌍 REAL WORLD
+
+                <br>
+                ↓
+                <br>
+
+                📥 OBSERVE / COLLECT / OBTAIN
+
+                <br>
+                ↓
+                <br>
+
+                🛠️ CREATE / CONVERT / PREPARE
+
+                <br>
+                ↓
+                <br>
+
+                🗺️ GIS DATA
+
+            </div>
+
+            <p style="margin-bottom:0;">
+                GIS data therefore do not simply
+                <strong>appear</strong>.
+                Someone has made decisions about
+                <strong>what to capture and how to represent it.</strong>
+            </p>
+
+        </div>
+
+
+        <!-- QUICK CHALLENGE -->
+
+        <div class="challenge">
+
+            <h2>🧠 Try One</h2>
+
+            <div class="challenge-card">
+
+                <p>
+                    You receive a spreadsheet containing
+                    <strong>100 clinic names and addresses</strong>.
+                </p>
+
+                <p>
+                    There are no coordinates and no clinic points
+                    on your GIS map.
+                </p>
+
+                <strong>
+                    Which approach would be the most sensible starting point?
+                </strong>
+
+
+                <button class="option"
+                        onclick="checkAnswer(false)">
+                    A. Draw 100 points wherever there is empty space
+                </button>
+
+                <button class="option"
+                        onclick="checkAnswer(false)">
+                    B. Trace every clinic manually from satellite imagery
+                </button>
+
+                <button class="option"
+                        onclick="checkAnswer(true)">
+                    C. Use the addresses to determine geographic locations
+                </button>
+
+                <button class="option"
+                        onclick="checkAnswer(false)">
+                    D. Delete the address column
+                </button>
+
+
+                <div id="correctAnswer"
+                     class="answer correct"
+                     style="display:none;">
+
+                    ✓ <strong>Good thinking.</strong>
+
+                    <br><br>
+
+                    The addresses already contain location information.
+                    A GIS process can use those descriptions to help
+                    determine geographic locations.
+
+                    <br><br>
+
+                    Later in Week 5, you will learn that this process
+                    is called <strong>geocoding</strong>.
+
                 </div>
 
-                <div class="flow-arrow">→</div>
 
-                <div class="flow-box">
-                    📥<br>
-                    CAPTURE / SOURCE
-                </div>
+                <div id="wrongAnswer"
+                     class="answer try-again"
+                     style="display:none;">
 
-                <div class="flow-arrow">→</div>
+                    Not quite.
 
-                <div class="flow-box">
-                    🛠️<br>
-                    CREATE / PREPARE
-                </div>
+                    <br><br>
 
-                <div class="flow-arrow">→</div>
+                    Look again at what you already have:
+                    <strong>100 addresses.</strong>
 
-                <div class="flow-box">
-                    🗺️<br>
-                    GIS DATA
+                    <br><br>
+
+                    Is there a way to use those location descriptions
+                    instead of creating the locations from scratch?
+
                 </div>
 
             </div>
@@ -608,135 +826,58 @@ h3 {
         </div>
 
 
-        <!-- QUICK THINK -->
+        <!-- CONNECTION TO WEEK 4 -->
+
+        <div class="connection">
+
+            <h3>🔗 Wait... What About Data Quality?</h3>
+
+            <p>
+                In Week 4, you asked whether existing GIS data
+                could be trusted.
+            </p>
+
+            <p>
+                Now imagine that <strong>you</strong> are creating
+                the data.
+            </p>
+
+            <p>
+                What could happen if:
+            </p>
+
+            <ul>
+                <li>the GPS position is inaccurate?</li>
+                <li>you trace the café in the wrong location?</li>
+                <li>an address matches the wrong place?</li>
+                <li>the spreadsheet contains incorrect coordinates?</li>
+            </ul>
+
+            <p style="margin-bottom:0;">
+                The quality questions from Week 4 have not disappeared.
+                They become even more important when
+                <strong>you become the data creator.</strong>
+            </p>
+
+        </div>
+
+
+        <!-- THINK BEFORE READING -->
 
         <div class="think">
 
-            <h2>💭 Quick Think</h2>
+            <strong>💭 Think Before You Read</strong>
 
             <p>
-                You have a spreadsheet containing
-                <strong>100 clinic addresses</strong>,
-                but there are no coordinates.
-            </p>
-
-            <p>
-                Which approach would be the most appropriate starting point?
-            </p>
-
-
-            <button class="choice" onclick="answer('wrong')">
-                A. Digitise every clinic building manually
-            </button>
-
-            <button class="choice" onclick="answer('correct')">
-                B. Geocode the clinic addresses
-            </button>
-
-            <button class="choice" onclick="answer('wrong')">
-                C. Draw 100 random points on the map
-            </button>
-
-            <button class="choice" onclick="answer('wrong')">
-                D. Delete the addresses and start again
-            </button>
-
-
-            <div id="correctAnswer"
-                 class="answer-feedback good"
-                 style="display:none;">
-
-                ✓ <strong>Correct.</strong>
-
-                Geocoding is designed to convert location descriptions,
-                such as addresses, into geographic locations.
-
-                <br><br>
-
-                But remember Week 4:
-                <strong>a successful match does not automatically mean
-                the location is correct.</strong>
-
-            </div>
-
-
-            <div id="wrongAnswer"
-                 class="answer-feedback notyet"
-                 style="display:none;">
-
-                Not quite. Look at the information you already have:
-                <strong>addresses</strong>.
-
-                <br><br>
-
-                Which GIS process is designed to turn an address into
-                a geographic location?
-
-            </div>
-
-        </div>
-
-
-        <!-- KEY DISCOVERY -->
-
-        <div class="discovery">
-
-            <h3>💡 Your Discovery</h3>
-
-            <p>
-                GIS data do not simply appear on a map.
-            </p>
-
-            <p>
-                Someone has to <strong>capture, create, convert,
-                import or integrate</strong> information before GIS
-                can use it.
-            </p>
-
-            <ul class="discovery-list">
-
-                <li>
-                    Field observations can become GIS features.
-                </li>
-
-                <li>
-                    Features visible in imagery can be digitised.
-                </li>
-
-                <li>
-                    Addresses can be geocoded.
-                </li>
-
-                <li>
-                    Coordinates and existing datasets can be imported
-                    and integrated.
-                </li>
-
-            </ul>
-
-        </div>
-
-
-        <!-- QUALITY CONNECTION -->
-
-        <div class="warning">
-
-            <strong>⚠️ But there is something important to remember.</strong>
-
-            <p>
-                Every method can introduce errors.
-            </p>
-
-            <p>
-                A GPS location can be inaccurate.
-                A feature can be digitised in the wrong place.
-                An address can be incorrectly matched.
-                A spreadsheet can contain incorrect coordinates.
+                You have now seen several ways information can enter GIS.
             </p>
 
             <p style="margin-bottom:0;">
-                This is why the data-quality questions from
-                <strong>Week 4 still matter when YOU become the data creator.</strong>
+                But there is a deeper question:
+                <strong>
+                    How can complex things in the real world be represented
+                    inside a computer?
+                </strong>
             </p>
 
         </div>
@@ -746,17 +887,22 @@ h3 {
 
         <div class="next">
 
-            You have discovered <strong>where GIS data can come from.</strong>
+            You have discovered that there are
+            <strong>different routes from the real world into GIS.</strong>
 
             <br><br>
 
-            Before we start creating features, let's look more closely at
-            how real-world information becomes spatial data.
+            Your next reading explains the idea behind this transformation:
+            how observations and measurements of real-world phenomena
+            become geographic data.
 
             <br><br>
+
+            <div class="next-label">
+                NEXT → 📘 READING 01
+            </div>
 
             <strong>
-                NEXT → 📘 READING 01<br>
                 How Does Real-World Information Become GIS Data?
             </strong>
 
@@ -769,33 +915,52 @@ h3 {
 
 <script>
 
-function toggleFeedback(id) {
+function toggleRoute(id) {
 
     var box = document.getElementById(id);
 
-    if (box.style.display === "none" || box.style.display === "") {
+    if (box.style.display === "none" ||
+        box.style.display === "") {
+
         box.style.display = "block";
+
     } else {
+
         box.style.display = "none";
     }
-
 }
 
 
-function answer(type) {
+function showPattern() {
 
-    var correct = document.getElementById("correctAnswer");
-    var wrong = document.getElementById("wrongAnswer");
+    document.getElementById("pattern").style.display = "block";
+
+    document.getElementById("pattern").scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+}
+
+
+function checkAnswer(isCorrect) {
+
+    var correct =
+        document.getElementById("correctAnswer");
+
+    var wrong =
+        document.getElementById("wrongAnswer");
 
     correct.style.display = "none";
     wrong.style.display = "none";
 
-    if (type === "correct") {
+    if (isCorrect) {
+
         correct.style.display = "block";
+
     } else {
+
         wrong.style.display = "block";
     }
-
 }
 
 </script>
